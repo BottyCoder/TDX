@@ -11,8 +11,8 @@
   {
     "imports": {
       "react": "https://esm.sh/react@18.2.0",
-      "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-      "htm/react": "https://esm.sh/htm@3.1.1/react?external=react,react-dom",
+      "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?external=react",
+      "htm": "https://esm.sh/htm@3.1.1",
       "three": "https://esm.sh/three@0.170.0"
     }
   }
@@ -876,10 +876,10 @@
   <script type="module">
     import React, { useEffect, useRef } from 'react';
     import { createRoot } from 'react-dom/client';
-    import htm from 'htm/react';
+    import htm from 'htm';
+    const html = htm.bind(React.createElement);
     import * as THREE from 'three';
     
-    const html = htm.bind(React.createElement);
     
     const defaultColors = ['#00D0FF', '#1A498A', '#C79143'];
     
