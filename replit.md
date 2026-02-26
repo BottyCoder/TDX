@@ -34,3 +34,10 @@ A static landing page for Think Digital X (TDX), an enterprise tech-media platfo
 
 ## Running
 `node server.js` — serves static files from `public/` on port 5010
+
+## Git (multi-environment)
+If you work from more than one clone (e.g. Replit + local), set a default pull strategy once so `git pull origin main` doesn’t ask how to reconcile divergent branches:
+```bash
+git config pull.rebase true
+```
+After that, `git pull` will rebase your local commits on top of `origin/main` and you won’t need to run merge commands.
