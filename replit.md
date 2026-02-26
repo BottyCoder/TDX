@@ -5,7 +5,7 @@ A static landing page for Think Digital X (TDX), an enterprise tech-media platfo
 
 ## Architecture
 - **Static site**: Single `public/index.html` file containing all HTML, CSS, and JavaScript
-- **Server**: Minimal Express static file server (`server.js`) on port 5000
+- **Server**: Minimal Express static file server (`server.js`) on port 5010
 - **Three.js**: Liquid ether fluid simulation as the hero background animation (loaded via ESM/CDN)
 
 ## Key Sections
@@ -33,4 +33,4 @@ A static landing page for Think Digital X (TDX), an enterprise tech-media platfo
 - Purple: #7c3bed
 
 ## Running
-`node server.js` — serves static files from `public/` on port 5000
+`node server.js` — serves static files from `public/` on port 5010
