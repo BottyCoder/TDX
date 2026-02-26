@@ -36,8 +36,33 @@ A static landing page for Think Digital X (TDX), an enterprise tech-media platfo
 `node server.js` — serves static files from `public/`. Port: `process.env.PORT` or 5000 (Replit sets PORT; do not change port numbers when publishing to Replit).
 
 ## Git (multi-environment)
-If you work from more than one clone (e.g. Replit + local), set a default pull strategy once so `git pull origin main` doesn’t ask how to reconcile divergent branches:
+If you work from more than one clone (e.g. Replit + local), set a default pull strategy once so `git pull origin main` doesn't ask how to reconcile divergent branches:
 ```bash
 git config pull.rebase true
 ```
-After that, `git pull` will rebase your local commits on top of `origin/main` and you won’t need to run merge commands.
+After that, `git pull` will rebase your local commits on top of `origin/main` and you won't need to run merge commands.
+
+### Replit: push when remote has new commits
+If Replit says "updates were rejected because the remote contains work that you do not have", align Replit with GitHub then push:
+
+1. **Set pull to rebase (once):**
+   ```bash
+   git config pull.rebase true
+   ```
+
+2. **Pull remote into Replit (rebases your Replit commits on top of origin/main):**
+   ```bash
+   git pull origin main
+   ```
+
+3. **If there are conflicts:** fix the files it lists, then:
+   ```bash
+   git add .
+   git rebase --continue
+   ```
+   (Or to abort and merge instead: `git rebase --abort`, then `git pull origin main` with merge.)
+
+4. **Push:**
+   ```bash
+   git push origin main
+   ```
