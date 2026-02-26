@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Think Digital X | High Yield, Zero CapEx, Maximum Trust (CI v2)</title>
+  <title>Think Digital X | High Yield, Zero CapEx, Maximum Trust</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -294,16 +294,42 @@
     .form-input:focus { outline: none; border-color: var(--tdx-cyan); background: rgba(255,255,255,0.08); }
     .form-textarea { min-height: 120px; resize: vertical; }
     .footer { padding: 4rem 2rem; background: #333333; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 4rem; max-width: 1400px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 4rem; max-width: 1400px; margin: 0 auto; }
     .footer-link { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s ease; }
     .footer-link:hover { color: white; }
     .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
     .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 0.5rem;
+      min-width: 180px;
+      background: #2a2a2a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 0.5rem 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-content { display: block; }
+    .nav-dropdown-content a {
+      display: block;
+      padding: 0.6rem 1.25rem;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-content a:hover { background: rgba(255,255,255,0.08); color: white; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @media (max-width: 1024px) {
       .value-grid, .solutions-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
       .media-kit-grid, .compliance-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-dropdown-content { left: auto; right: 0; }
     }
     @media (max-width: 768px) {
       .value-grid, .solutions-grid, .team-grid { grid-template-columns: 1fr; }
@@ -323,7 +349,17 @@
       </a>
       <nav style="display:flex;gap:2rem;align-items:center">
         <a href="#value" class="footer-link" id="nav-value-engine">Value Engine</a>
-        <a href="#solutions" class="footer-link" id="nav-solutions">Solutions</a>
+        <a href="#product" class="footer-link" id="nav-product">Product</a>
+        <div class="nav-dropdown">
+          <a href="#solutions" class="footer-link" id="nav-solutions" style="display:inline-flex;align-items:center;gap:0.35rem">Solutions <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
+          <div class="nav-dropdown-content">
+            <a href="#solutions">All Solutions</a>
+            <a href="#malls">Malls</a>
+            <a href="#townships">Townships</a>
+            <a href="#health">Health</a>
+            <a href="#dha">DHA</a>
+          </div>
+        </div>
         <a href="#dashboard" class="footer-link" id="nav-dashboard">Dashboard</a>
         <a href="#contact" class="btn-primary" id="nav-cta" style="padding:0.75rem 1.5rem;font-size:0.9rem">Get Started</a>
       </nav>
@@ -415,13 +451,24 @@
             <iconify-icon icon="lucide:check" style="width:16px"></iconify-icon>REAL-TIME ANALYTICS
           </li>
           <li class="mono" style="font-size:0.8rem;color:var(--tdx-cyan);display:flex;align-items:center;gap:0.5rem">
-            <iconify-icon icon="lucide:check" style="width:16px"></iconify-icon>12.5M+ MONTHLY REACH
+            <iconify-icon icon="lucide:check" style="width:16px"></iconify-icon>5M+ AD IMPRESSIONS / MONTH
           </li>
           <li class="mono" style="font-size:0.8rem;color:var(--tdx-cyan);display:flex;align-items:center;gap:0.5rem">
-            <iconify-icon icon="lucide:check" style="width:16px"></iconify-icon>450+ ACTIVE NODES
+            <iconify-icon icon="lucide:check" style="width:16px"></iconify-icon>96% VIEWABILITY RATE
           </li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <div class="gradient-line"></div>
+
+  <section id="product" class="section section-dark">
+    <div style="text-align:center;max-width:800px;margin:0 auto">
+      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">Product</p>
+      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem">ThinkZone</h2>
+      <p style="font-size:1.1rem;color:var(--tdx-gold);margin-bottom:1rem;font-weight:600">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
+      <p style="font-size:1.25rem;color:rgba(255,255,255,0.7);line-height:1.7">Your digital gateway to the fastest growing consumer segment in the mass market and informal economy. ThinkZone public Wi‑Fi powers connectivity across townships, malls, healthcare, transport, and government—connecting high-engagement audiences with global programmatic demand.</p>
     </div>
   </section>
 
@@ -444,18 +491,18 @@
           <iconify-icon icon="lucide:shopping-bag" style="font-size:1.5rem;color:var(--tdx-cyan)"></iconify-icon>
         </div>
         <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Malls</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">Premium retail environments with high dwell times and engaged audiences.</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">50 malls enjoying ThinkZone free Wi‑Fi, attracting more visitors while providing non-GLA revenue opportunity for owners.</p>
         <a href="#malls" style="color:var(--tdx-cyan);font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-malls">
           Learn more <iconify-icon icon="lucide:chevron-right" style="font-size:0.8rem"></iconify-icon>
         </a>
       </div>
       <div class="solution-card glass-card">
-        <div style="width:56px;height:56px;border-radius:14px;background:rgba(124,59,237,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
-          <iconify-icon icon="lucide:home" style="font-size:1.5rem;color:#7c3bed"></iconify-icon>
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(0,128,128,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+          <iconify-icon icon="lucide:home" style="font-size:1.5rem;color:var(--tdx-teal)"></iconify-icon>
         </div>
         <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Townships</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">Community-centric connectivity powering digital inclusion at scale.</p>
-        <a href="#townships" style="color:#7c3bed;font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-townships">
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">Over 500 public Wi‑Fi ThinkZones in townships like Khayelitsha, Soweto, Diepsloot—equality and opportunity that the internet provides.</p>
+        <a href="#townships" style="color:var(--tdx-teal);font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-townships">
           Learn more <iconify-icon icon="lucide:chevron-right" style="font-size:0.8rem"></iconify-icon>
         </a>
       </div>
@@ -463,8 +510,8 @@
         <div style="width:56px;height:56px;border-radius:14px;background:rgba(199,145,67,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
           <iconify-icon icon="lucide:heart-pulse" style="font-size:1.5rem;color:var(--tdx-gold)"></iconify-icon>
         </div>
-        <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Health Facilities</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">Patient and visitor engagement in hospitals and healthcare environments.</p>
+        <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Health</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">13 Unjani Clinics and Baragwanath Hospital—ThinkZone for patients and visitors, with access to e‑health services.</p>
         <a href="#health" style="color:var(--tdx-gold);font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-health">
           Learn more <iconify-icon icon="lucide:chevron-right" style="font-size:0.8rem"></iconify-icon>
         </a>
@@ -474,7 +521,7 @@
           <iconify-icon icon="lucide:building" style="font-size:1.5rem;color:var(--tdx-blue)"></iconify-icon>
         </div>
         <h3 style="font-size:1.35rem;margin-bottom:0.75rem">DHA</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">Government and public sector digital infrastructure deployment.</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">23 Department of Home Affairs sites (in build)—making a stay at Home Affairs more productive, with access to e‑government services.</p>
         <a href="#dha" style="color:var(--tdx-blue);font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-dha">
           Learn more <iconify-icon icon="lucide:chevron-right" style="font-size:0.8rem"></iconify-icon>
         </a>
@@ -786,12 +833,16 @@
         </div>
       </div>
       <div>
+        <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;color:white">Product</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
+          <li><a href="#product" class="footer-link" id="footer-thinkzone">ThinkZone</a></li>
+        </ul>
+      </div>
+      <div>
         <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;color:white">Ecosystem</h4>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
-          <li><a href="#" class="footer-link" id="footer-supply">Supply Partners</a></li>
-          <li><a href="#" class="footer-link" id="footer-demand">Advertiser Portal</a></li>
-          <li><a href="#" class="footer-link" id="footer-thinkzone">ThinkZone</a></li>
-          <li><a href="#" class="footer-link" id="footer-signage">Digital Signage</a></li>
+          <li><a href="#supply" class="footer-link" id="footer-supply">Supply Partners</a></li>
+          <li><a href="#demand" class="footer-link" id="footer-demand">Advertiser Portal</a></li>
         </ul>
       </div>
       <div>
@@ -799,7 +850,7 @@
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
           <li><a href="#malls" class="footer-link" id="footer-malls">Malls</a></li>
           <li><a href="#townships" class="footer-link" id="footer-townships">Townships</a></li>
-          <li><a href="#health" class="footer-link" id="footer-health">Health Facilities</a></li>
+          <li><a href="#health" class="footer-link" id="footer-health">Health</a></li>
           <li><a href="#dha" class="footer-link" id="footer-dha">DHA</a></li>
         </ul>
       </div>
