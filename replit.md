@@ -5,7 +5,7 @@ A static landing page for Think Digital X (TDX), an enterprise tech-media platfo
 
 ## Architecture
 - **Static site**: Single `public/index.html` file containing all HTML, CSS, and JavaScript
-- **Server**: Minimal Express static file server (`server.js`) on port 5010
+- **Server**: Minimal Express static file server (`server.js`). Uses `PORT` from environment; default 5000 (do not change for Replit).
 - **Three.js**: Liquid ether fluid simulation as the hero background animation (loaded via ESM/CDN)
 
 ## Key Sections
@@ -33,7 +33,7 @@ A static landing page for Think Digital X (TDX), an enterprise tech-media platfo
 - Purple: #7c3bed
 
 ## Running
-`node server.js` — serves static files from `public/` on port 5010
+`node server.js` — serves static files from `public/`. Port: `process.env.PORT` or 5000 (Replit sets PORT; do not change port numbers when publishing to Replit).
 
 ## Git (multi-environment)
 If you work from more than one clone (e.g. Replit + local), set a default pull strategy once so `git pull origin main` doesn’t ask how to reconcile divergent branches:

@@ -85,9 +85,9 @@ app.use((req, res, next) => {
     await setupVite(httpServer, app);
   }
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // TDX uses 5010 (agentic-mvp brain.md: full-stack when 5000 is taken).
-  const port = parseInt(process.env.PORT || "5010", 10);
+  // ALWAYS serve the app on the port specified in the environment variable PORT.
+  // Do not change the default when publishing to Replit—Replit sets PORT; default 5000.
+  const port = parseInt(process.env.PORT || "5000", 10);
   httpServer.listen(
     {
       port,
