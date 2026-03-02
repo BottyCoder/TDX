@@ -42,6 +42,9 @@ git config pull.rebase true
 ```
 After that, `git pull` will rebase your local commits on top of `origin/main` and you won't need to run merge commands.
 
+### Replit: after pulling, redeploy so the live site updates
+Static deployment (`.replit` → `publicDir = "public"`) serves the **public** folder. After you `git pull` on Replit, trigger **Publish** (or **Redeploy**) so the live site picks up the new files. A hard refresh (Ctrl+Shift+R / Cmd+Shift+R) may be needed to avoid cache.
+
 ### Replit: push when remote has new commits
 If Replit says "updates were rejected because the remote contains work that you do not have", align Replit with GitHub then push:
 
