@@ -26,6 +26,7 @@
       --tdx-gold: #C79143;
       --tdx-blue: #1A498A;
       --tdx-teal: #008080;
+      --tdx-yellow: #FFD700;
       --tdx-charcoal: #333333;
       --glass-border: rgba(255,255,255,0.10);
       --glass-bg: rgba(255,255,255,0.04);
@@ -44,6 +45,7 @@
     .text-cyan { color: var(--tdx-cyan); }
     .text-gold { color: var(--tdx-gold); }
     .text-blue { color: var(--tdx-blue); }
+    .text-yellow { color: var(--tdx-yellow); }
     .bg-cyan { background-color: var(--tdx-cyan); }
     .bg-gold { background-color: var(--tdx-gold); }
     .bg-blue { background-color: var(--tdx-blue); }
@@ -61,11 +63,11 @@
     }
     .gradient-line {
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--tdx-cyan), var(--tdx-gold), transparent);
+      background: linear-gradient(90deg, transparent, var(--tdx-cyan), var(--tdx-yellow), var(--tdx-gold), transparent);
     }
     .gradient-divider {
       height: 2px;
-      background: linear-gradient(90deg, var(--tdx-blue), var(--tdx-cyan), var(--tdx-gold), var(--tdx-blue));
+      background: linear-gradient(90deg, var(--tdx-blue), var(--tdx-cyan), var(--tdx-yellow), var(--tdx-gold), var(--tdx-blue));
     }
     .noise-overlay {
       position: fixed;
@@ -265,7 +267,9 @@
     .dashboard-container { position: relative; border-radius: 24px; overflow: hidden; margin-top: 4rem; }
     .dashboard-frame { background: #3F3F3F; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5); }
     .media-kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
-    .trusted-logos { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; opacity: 0.5; }
+    .trusted-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; margin-top: 3rem; }
+    .trusted-logos .brand-item { color: rgba(255,255,255,0.35); transition: color 0.35s ease; }
+    .trusted-logos .brand-item:hover { color: white; }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
     .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
@@ -344,11 +348,11 @@
   
   <header style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;background:linear-gradient(to bottom,rgba(0,0,0,0.8),transparent)">
     <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
-      <a href="#" id="nav-logo-link">
-        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567741325-ad26bb0b/White_Color__X_FINAL_Think_Digital_logo_-_Transparent_Background-02.png" alt="Think Digital X" style="height:40px">
+      <a href="#" id="nav-logo-link" style="display:flex;align-items:center">
+        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567741325-ad26bb0b/White_Color__X_FINAL_Think_Digital_logo_-_Transparent_Background-02.png" alt="Think Digital X" style="height:56px;min-width:120px;object-fit:contain">
       </a>
       <nav style="display:flex;gap:2rem;align-items:center">
-        <a href="#value" class="footer-link" id="nav-value-engine">Value Engine</a>
+        <a href="#value" class="footer-link" id="nav-value-engine">TDX Value Engine</a>
         <a href="#product" class="footer-link" id="nav-product">Product</a>
         <div class="nav-dropdown">
           <a href="#solutions" class="footer-link" id="nav-solutions" style="display:inline-flex;align-items:center;gap:0.35rem">Solutions <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
@@ -360,8 +364,7 @@
             <a href="#dha">DHA</a>
           </div>
         </div>
-        <a href="#dashboard" class="footer-link" id="nav-dashboard">Dashboard</a>
-        <a href="#contact" class="btn-primary" id="nav-cta" style="padding:0.75rem 1.5rem;font-size:0.9rem">Get Started</a>
+        <a href="#dashboard" class="footer-link" id="nav-dashboard">Your Dashboard</a>
       </nav>
     </div>
   </header>
@@ -371,28 +374,24 @@
       <div id="liquid-ether-canvas"></div>
       <div class="video-overlay"></div>
       <div class="video-label">Infrastructure Becoming Digital</div>
-      <div class="privacy-badge">Privacy-First Architecture</div>
     </div>
     <div class="hero-content">
-      <div class="hero-badge trust">
-        <iconify-icon icon="lucide:shield-check" style="color:var(--tdx-blue)"></iconify-icon>
-        <span class="mono" style="font-size:0.75rem;letter-spacing:0.15em">POPIA COMPLIANT • NO PII STORED</span>
-      </div>
       <h1 class="hero-title">
         <span class="word">High <span class="gold">Yield.</span></span>
         <span class="word">Zero <span class="cyan">CapEx.</span></span>
         <span class="word">Maximum <span class="gradient-text">Trust.</span></span>
       </h1>
-      <p class="hero-subtitle">The enterprise tech-media engine transforming South African infrastructure into high-performing digital assets. Beyond impressions. We map behavior.</p>
+      <p class="hero-subtitle">Bridging the gap between enterprises and the mass market through AI-driven media. We don't just generate impressions; we decode audience behavior to turn data into dominant market share.</p>
       <div class="hero-ctas">
-        <a href="#supply" id="hero-partner-btn" class="btn-primary">Partner With Us</a>
-        <a href="#demand" id="hero-advertiser-btn" class="btn-secondary">Request Media Kit</a>
+        <a href="#contact" id="hero-partner-btn" class="btn-primary">Partner with TDX</a>
+        <a href="#media-kit" id="hero-advertiser-btn" class="btn-secondary">Advertise with TDX</a>
       </div>
     </div>
     <div class="scroll-indicator">
       <span class="mono" style="font-size:0.7rem;letter-spacing:0.15em">SCROLL TO EXPLORE</span>
       <iconify-icon icon="lucide:chevron-down"></iconify-icon>
     </div>
+    <div class="privacy-badge" style="bottom:6rem;top:auto">Privacy-First Architecture</div>
   </section>
 
   <div class="gradient-divider"></div>
@@ -400,8 +399,8 @@
   <section id="value" class="section section-dark">
     <div style="text-align:center;max-width:800px;margin:0 auto">
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">The Value Engine</p>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">Three Streams.<br>One Powerful Intersection.</h2>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">Three powerful streams converge into a single, stronger entity. The seamless intersection where TDX bridges supply and demand.</p>
+      <h2 style="font-size:clamp(2.75rem,6vw,4.5rem);margin-bottom:1.5rem">Three Streams.<br>One Powerful Intersection.</h2>
+      <p style="font-size:1.4rem;color:rgba(255,255,255,0.6);line-height:1.7">Three powerful streams converge into a single, stronger entity. The seamless intersection where TDX bridges supply and demand.</p>
     </div>
     <div class="value-grid">
       <div class="value-card value-card-blue glass-card">
@@ -478,8 +477,8 @@
     <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:3rem">
       <div>
         <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-gold);margin-bottom:1rem">Solutions</p>
-        <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem">Targeted Deployments</h2>
-        <p style="font-size:1.25rem;color:rgba(255,255,255,0.6)">High-traffic environments across South Africa.</p>
+        <h2 style="font-size:clamp(2.75rem,6vw,4.5rem);margin-bottom:1rem">Targeted Deployments</h2>
+        <p style="font-size:1.4rem;color:rgba(255,255,255,0.6)">High-traffic environments across South Africa.</p>
       </div>
       <a href="#" class="mono" style="font-size:0.85rem;color:var(--tdx-cyan);display:flex;align-items:center;gap:0.5rem;text-decoration:none" id="view-all-solutions">
         View All <iconify-icon icon="lucide:arrow-right"></iconify-icon>
@@ -535,7 +534,7 @@
     <div style="text-align:center;max-width:700px;margin:0 auto 4rem">
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">Analytics</p>
       <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">Full Transparency Engine</h2>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">Anonymized, real-time reporting available to all stakeholders via our proprietary X-Dashboard.</p>
+      <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">Anonymised, real-time reporting. TDX proprietary, AI led &quot;Dashboard X&quot;.</p>
     </div>
     <div class="dashboard-container">
       <div class="dashboard-frame glass-card" style="position:relative">
@@ -581,29 +580,7 @@
             </div>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem">
-          <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden">
-            <div style="width:75%;height:100%;background:linear-gradient(90deg,var(--tdx-cyan),var(--tdx-blue))"></div>
-          </div>
-          <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden">
-            <div style="width:50%;height:100%;background:linear-gradient(90deg,var(--tdx-blue),var(--tdx-gold))"></div>
-          </div>
-          <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden">
-            <div style="width:80%;height:100%;background:linear-gradient(90deg,var(--tdx-gold),var(--tdx-cyan))"></div>
-          </div>
-          <div style="height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden">
-            <div style="width:65%;height:100%;background:linear-gradient(90deg,var(--tdx-cyan),var(--tdx-blue))"></div>
-          </div>
-        </div>
-      </div>
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:10">
-        <div style="text-align:center">
-          <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem">
-            <iconify-icon icon="lucide:lock" style="font-size:2rem;color:white"></iconify-icon>
-          </div>
-          <p class="mono" style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-bottom:1.5rem">LIVE DASHBOARD DEMO</p>
-          <button style="padding:1rem 2rem;background:white;color:black;border:none;border-radius:100px;font-weight:700;cursor:pointer;transition:all 0.3s ease" id="dashboard-access-btn">Access Reporting Demo</button>
-        </div>
+        <div style="height:4px;border-radius:2px;overflow:hidden;margin-top:1.5rem;background:linear-gradient(90deg,var(--tdx-blue),var(--tdx-cyan),var(--tdx-yellow),var(--tdx-gold),var(--tdx-blue))"></div>
       </div>
     </div>
   </section>
@@ -639,7 +616,7 @@
               <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Active Nodes</div>
             </div>
             <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:16px">
-              <div style="font-size:2.5rem;font-weight:800;color:#7c3bed;margin-bottom:0.5rem">98%</div>
+              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-yellow);margin-bottom:0.5rem">98%</div>
               <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Brand Safety</div>
             </div>
             <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:16px">
@@ -658,11 +635,11 @@
     <div style="text-align:center">
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem">Trusted By Industry Leaders</p>
       <div class="trusted-logos">
-        <div style="font-size:1.5rem;font-weight:700;color:rgba(255,255,255,0.4)">GlobalFinance</div>
-        <div style="font-size:1.5rem;font-weight:700;color:rgba(255,255,255,0.4)">TechCorp</div>
-        <div style="font-size:1.5rem;font-weight:700;color:rgba(255,255,255,0.4)">SecureNet</div>
-        <div style="font-size:1.5rem;font-weight:700;color:rgba(255,255,255,0.4)">InnovateX</div>
-        <div style="font-size:1.5rem;font-weight:700;color:rgba(255,255,255,0.4)">CloudWave</div>
+        <div class="brand-item" style="font-size:1.5rem;font-weight:700">GlobalFinance</div>
+        <div class="brand-item" style="font-size:1.5rem;font-weight:700">TechCorp</div>
+        <div class="brand-item" style="font-size:1.5rem;font-weight:700">SecureNet</div>
+        <div class="brand-item" style="font-size:1.5rem;font-weight:700">InnovateX</div>
+        <div class="brand-item" style="font-size:1.5rem;font-weight:700">CloudWave</div>
       </div>
     </div>
   </section>
@@ -672,7 +649,7 @@
   <section id="team" class="section section-alt">
     <div style="text-align:center;max-width:700px;margin:0 auto 4rem">
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">The Team</p>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">Built by Experts</h2>
+      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">One team. One group.</h2>
       <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">A team of enterprise infrastructure veterans and programmatic media specialists.</p>
     </div>
     <div class="team-grid">
@@ -723,16 +700,16 @@
             </div>
           </div>
           <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:flex-start;gap:1rem">
-            <iconify-icon icon="lucide:lock" style="font-size:1.5rem;color:#7c3bed;flex-shrink:0"></iconify-icon>
+            <iconify-icon icon="lucide:lock" style="font-size:1.5rem;color:var(--tdx-yellow);flex-shrink:0"></iconify-icon>
             <div>
               <h4 style="margin-bottom:0.5rem">Encrypted Relay</h4>
               <p style="font-size:0.85rem;color:rgba(255,255,255,0.5)">All forms are relay-only. No PII storage on site.</p>
             </div>
           </div>
         </div>
-        <blockquote style="border-left:3px solid var(--tdx-blue);padding-left:1.5rem">
+        <blockquote style="border-left:4px solid var(--tdx-yellow);padding-left:1.5rem">
           <p style="font-size:1.15rem;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:1rem">"Trust isn't just a promise at TDX; it's the fundamental architecture that allows us to operate at scale with South Africa's largest property owners."</p>
-          <cite class="mono" style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-style:normal">— Platform Operations Director</cite>
+          <cite class="mono" style="font-size:0.8rem;color:var(--tdx-yellow);font-style:normal">— Platform Operations Director, Marnus Kruger</cite>
         </blockquote>
       </div>
     </div>
@@ -822,7 +799,11 @@
     <div class="footer-grid">
       <div>
         <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567741325-ad26bb0b/White_Color__X_FINAL_Think_Digital_logo_-_Transparent_Background-02.png" alt="Think Digital X" style="height:48px;margin-bottom:1.5rem;opacity:0.8">
-        <p style="color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:2rem;max-width:300px">Think Digital X is a premium enterprise tech-media platform driving high-yield outcomes for South African infrastructure and global brands.</p>
+        <p style="color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:1rem;max-width:300px">Think Digital X is a premium enterprise tech-media platform driving high-yield outcomes for South African infrastructure and global brands.</p>
+        <p style="font-size:0.9rem;margin-bottom:1.5rem">
+          <a href="mailto:info@tdx.media" class="footer-link" style="display:block;margin-bottom:0.25rem">info@tdx.media</a>
+          <a href="tel:+27110000000" class="footer-link" style="display:block">+27 11 000 0000</a>
+        </p>
         <div style="display:flex;gap:1rem">
           <a href="#" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;transition:all 0.3s ease" id="footer-linkedin">
             <iconify-icon icon="lucide:linkedin" style="color:white"></iconify-icon>
@@ -841,8 +822,8 @@
       <div>
         <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;color:white">Ecosystem</h4>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
-          <li><a href="#supply" class="footer-link" id="footer-supply">Supply Partners</a></li>
-          <li><a href="#demand" class="footer-link" id="footer-demand">Advertiser Portal</a></li>
+          <li><a href="#contact" class="footer-link" id="footer-supply">Partner with TDX</a></li>
+          <li><a href="#media-kit" class="footer-link" id="footer-demand">Advertise with TDX</a></li>
         </ul>
       </div>
       <div>
@@ -866,9 +847,15 @@
     </div>
     <div style="max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
       <p class="mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase">© 2026 THINK DIGITAL X (TDX). ALL RIGHTS RESERVED.</p>
-      <div class="status-indicator">
-        <div class="status-dot"></div>
-        <span class="mono" style="letter-spacing:0.05em">PLATFORM STATUS: OPERATIONAL</span>
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+        <div class="status-indicator">
+          <div class="status-dot"></div>
+          <span class="mono" style="letter-spacing:0.05em">PLATFORM STATUS: OPERATIONAL</span>
+        </div>
+        <div class="status-indicator">
+          <div class="status-dot"></div>
+          <span class="mono" style="letter-spacing:0.05em">UP TIME: 100%</span>
+        </div>
       </div>
     </div>
   </footer>
@@ -881,7 +868,7 @@
     import * as THREE from 'three';
     
     
-    const defaultColors = ['#00D0FF', '#1A498A', '#C79143'];
+    const defaultColors = ['#00D0FF', '#1A498A', '#FFD700', '#C79143'];
     
     function LiquidEther({
       mouseForce = 25,
@@ -1711,7 +1698,7 @@
     function App() {
       return html`
         <${LiquidEther}
-          colors=${['#00D0FF', '#1A498A', '#C79143']}
+          colors=${['#00D0FF', '#1A498A', '#FFD700', '#C79143']}
           mouseForce=${25}
           cursorSize=${120}
           resolution=${0.6}
