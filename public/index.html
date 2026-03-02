@@ -263,8 +263,9 @@
     .brands-marquee-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: brands-scroll 40s linear infinite; }
     .brands-marquee-track:hover { animation-play-state: paused; }
     @keyframes brands-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: filter 0.35s ease, opacity 0.35s ease; }
+    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: filter 0.35s ease, opacity 0.35s ease; background: transparent; mix-blend-mode: multiply; }
     .brands-marquee .brand-logo:hover { filter: none; opacity: 1; }
+    .team-group-photo { min-height: 280px; background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
     .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
@@ -698,27 +699,24 @@
       <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">One team. One group.</h2>
       <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">A team of enterprise infrastructure veterans and programmatic media specialists.</p>
     </div>
+    <div style="text-align:center;margin-bottom:4rem">
+      <div class="team-group-photo" style="width:100%;max-width:720px;margin:0 auto;min-height:280px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);box-shadow:0 20px 40px rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
+        <iconify-icon icon="lucide:users" style="font-size:4rem;color:rgba(255,255,255,0.25)"></iconify-icon>
+        <span style="font-size:0.9rem;color:rgba(255,255,255,0.4);letter-spacing:0.05em">Group photo coming soon</span>
+      </div>
+    </div>
     <div class="team-grid">
       <div class="team-card glass-card">
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02));border-radius:16px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center">
-          <iconify-icon icon="lucide:user" style="font-size:3rem;color:rgba(255,255,255,0.3)"></iconify-icon>
-        </div>
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Platform Operations</h3>
         <p style="font-size:0.9rem;color:var(--tdx-cyan);margin-bottom:1rem">Technical Infrastructure</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Leading deployment and optimization across South Africa's most demanding environments.</p>
       </div>
       <div class="team-card glass-card">
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02));border-radius:16px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center">
-          <iconify-icon icon="lucide:user" style="font-size:3rem;color:rgba(255,255,255,0.3)"></iconify-icon>
-        </div>
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Commercial Strategy</h3>
         <p style="font-size:0.9rem;color:var(--tdx-gold);margin-bottom:1rem">Partnership & Growth</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Developing strategic relationships and driving revenue optimization across the platform.</p>
       </div>
       <div class="team-card glass-card">
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02));border-radius:16px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center">
-          <iconify-icon icon="lucide:user" style="font-size:3rem;color:rgba(255,255,255,0.3)"></iconify-icon>
-        </div>
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Compliance & Security</h3>
         <p style="font-size:0.9rem;color:var(--tdx-blue);margin-bottom:1rem">Data Protection</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Ensuring POPIA compliance and maintaining zero-PII architecture across all data flows.</p>
@@ -847,18 +845,18 @@
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Target</label>
-              <select class="form-input" style="cursor:pointer">
-                <option style="background:#333333">Spend</option>
-                <option style="background:#333333">Reach</option>
-              </select>
-            </div>
-            <div class="form-group">
               <label class="form-label">Geolocation</label>
               <select class="form-input" style="cursor:pointer">
                 <option style="background:#333333">National</option>
                 <option style="background:#333333">Regional</option>
                 <option style="background:#333333">Venue specific</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Target</label>
+              <select class="form-input" style="cursor:pointer">
+                <option style="background:#333333">Spend</option>
+                <option style="background:#333333">Reach</option>
               </select>
             </div>
             <div class="form-group">
