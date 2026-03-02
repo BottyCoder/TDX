@@ -259,6 +259,12 @@
     .trusted-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; margin-top: 3rem; }
     .trusted-logos .brand-item { color: rgba(255,255,255,0.35); transition: color 0.35s ease; }
     .trusted-logos .brand-item:hover { color: white; }
+    .brands-marquee { overflow: hidden; margin-top: 2rem; padding: 1rem 0; }
+    .brands-marquee-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: brands-scroll 40s linear infinite; }
+    .brands-marquee-track:hover { animation-play-state: paused; }
+    @keyframes brands-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: filter 0.35s ease, opacity 0.35s ease; }
+    .brands-marquee .brand-logo:hover { filter: none; opacity: 1; }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
     .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
@@ -632,13 +638,54 @@
 
   <section id="trusted" class="section section-dark" style="padding:4rem 2rem">
     <div style="text-align:center">
-      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem">Trusted By Industry Leaders</p>
-      <div class="trusted-logos">
-        <div class="brand-item" style="font-size:1.5rem;font-weight:700">GlobalFinance</div>
-        <div class="brand-item" style="font-size:1.5rem;font-weight:700">TechCorp</div>
-        <div class="brand-item" style="font-size:1.5rem;font-weight:700">SecureNet</div>
-        <div class="brand-item" style="font-size:1.5rem;font-weight:700">InnovateX</div>
-        <div class="brand-item" style="font-size:1.5rem;font-weight:700">CloudWave</div>
+      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem">Brands who have used our platform</p>
+      <div class="brands-marquee">
+        <div class="brands-marquee-track">
+          <img src="logos-thinkwifi/Vodacom.png" alt="Vodacom" class="brand-logo">
+          <img src="logos-thinkwifi/Netflix.jpeg" alt="Netflix" class="brand-logo">
+          <img src="logos-thinkwifi/coca-cola.png" alt="Coca-Cola" class="brand-logo">
+          <img src="logos-thinkwifi/nestle.png" alt="Nestlé" class="brand-logo">
+          <img src="logos-thinkwifi/Kelloggs-Logo.png" alt="Kellogg's" class="brand-logo">
+          <img src="logos-thinkwifi/supersport-logo.png" alt="SuperSport" class="brand-logo">
+          <img src="logos-thinkwifi/dstv-logo2.png" alt="DStv" class="brand-logo">
+          <img src="logos-thinkwifi/absa1.jpg" alt="ABSA" class="brand-logo">
+          <img src="logos-thinkwifi/capitec.png" alt="Capitec" class="brand-logo">
+          <img src="logos-thinkwifi/fnb.jpg" alt="FNB" class="brand-logo">
+          <img src="logos-thinkwifi/standard-bank2.png" alt="Standard Bank" class="brand-logo">
+          <img src="logos-thinkwifi/shoprite.jpg" alt="Shoprite" class="brand-logo">
+          <img src="logos-thinkwifi/airbnb.png" alt="Airbnb" class="brand-logo">
+          <img src="logos-thinkwifi/Tiktok_Logo.png" alt="TikTok" class="brand-logo">
+          <img src="logos-thinkwifi/Bokomo_South_Africa_Logo.png" alt="Bokomo" class="brand-logo">
+          <img src="logos-thinkwifi/castle-lite.png" alt="Castle Lite" class="brand-logo">
+          <img src="logos-thinkwifi/lifeboy.jpg" alt="Lifebuoy" class="brand-logo">
+          <img src="logos-thinkwifi/bata.png" alt="Bata" class="brand-logo">
+          <img src="logos-thinkwifi/albany.jpg" alt="Albany" class="brand-logo">
+          <img src="logos-thinkwifi/metropolitan-co-za-vector-logo.png" alt="Metropolitan" class="brand-logo">
+          <img src="logos-thinkwifi/sanlam2.jpg" alt="Sanlam" class="brand-logo">
+          <img src="logos-thinkwifi/avbob.jpeg" alt="AVBOB" class="brand-logo">
+          <img src="logos-thinkwifi/Vodacom.png" alt="Vodacom" class="brand-logo">
+          <img src="logos-thinkwifi/Netflix.jpeg" alt="Netflix" class="brand-logo">
+          <img src="logos-thinkwifi/coca-cola.png" alt="Coca-Cola" class="brand-logo">
+          <img src="logos-thinkwifi/nestle.png" alt="Nestlé" class="brand-logo">
+          <img src="logos-thinkwifi/Kelloggs-Logo.png" alt="Kellogg's" class="brand-logo">
+          <img src="logos-thinkwifi/supersport-logo.png" alt="SuperSport" class="brand-logo">
+          <img src="logos-thinkwifi/dstv-logo2.png" alt="DStv" class="brand-logo">
+          <img src="logos-thinkwifi/absa1.jpg" alt="ABSA" class="brand-logo">
+          <img src="logos-thinkwifi/capitec.png" alt="Capitec" class="brand-logo">
+          <img src="logos-thinkwifi/fnb.jpg" alt="FNB" class="brand-logo">
+          <img src="logos-thinkwifi/standard-bank2.png" alt="Standard Bank" class="brand-logo">
+          <img src="logos-thinkwifi/shoprite.jpg" alt="Shoprite" class="brand-logo">
+          <img src="logos-thinkwifi/airbnb.png" alt="Airbnb" class="brand-logo">
+          <img src="logos-thinkwifi/Tiktok_Logo.png" alt="TikTok" class="brand-logo">
+          <img src="logos-thinkwifi/Bokomo_South_Africa_Logo.png" alt="Bokomo" class="brand-logo">
+          <img src="logos-thinkwifi/castle-lite.png" alt="Castle Lite" class="brand-logo">
+          <img src="logos-thinkwifi/lifeboy.jpg" alt="Lifebuoy" class="brand-logo">
+          <img src="logos-thinkwifi/bata.png" alt="Bata" class="brand-logo">
+          <img src="logos-thinkwifi/albany.jpg" alt="Albany" class="brand-logo">
+          <img src="logos-thinkwifi/metropolitan-co-za-vector-logo.png" alt="Metropolitan" class="brand-logo">
+          <img src="logos-thinkwifi/sanlam2.jpg" alt="Sanlam" class="brand-logo">
+          <img src="logos-thinkwifi/avbob.jpeg" alt="AVBOB" class="brand-logo">
+        </div>
       </div>
     </div>
   </section>
