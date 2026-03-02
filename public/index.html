@@ -219,7 +219,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
+      color: var(--tdx-yellow);
       z-index: 10;
     }
     .privacy-badge {
@@ -273,7 +273,7 @@
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
     .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .contact-form { padding: 2.5rem; border-radius: 24px; }
     .form-group { margin-bottom: 1.5rem; }
     .form-label {
@@ -332,6 +332,7 @@
     @media (max-width: 1024px) {
       .value-grid, .solutions-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
       .media-kit-grid, .compliance-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-dropdown-content { left: auto; right: 0; }
     }
@@ -398,7 +399,6 @@
 
   <section id="value" class="section section-dark">
     <div style="text-align:center;max-width:800px;margin:0 auto">
-      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-yellow);margin-bottom:1rem">The Value Engine</p>
       <h2 style="font-size:clamp(3rem,7vw,5.25rem);margin-bottom:2rem">Three Streams.<br>One Powerful Intersection.</h2>
     </div>
     <div class="value-grid">
@@ -776,9 +776,10 @@
             <div class="form-group">
               <label class="form-label">Budget Range</label>
               <select class="form-input" style="cursor:pointer">
-                <option style="background:#333333">R50k - R100k</option>
-                <option style="background:#333333">R100k - R500k</option>
-                <option style="background:#333333">R500k - R1M</option>
+                <option style="background:#333333">R1 – R50k</option>
+                <option style="background:#333333">R50k – R100k</option>
+                <option style="background:#333333">R100k – R500k</option>
+                <option style="background:#333333">R500k – R1M</option>
                 <option style="background:#333333">R1M+</option>
               </select>
             </div>
@@ -789,6 +790,19 @@
             <button type="submit" class="btn-primary" style="width:100%;background:var(--tdx-gold);color:black" id="form-advertiser-submit">Request Quote</button>
             <p class="mono" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:1rem;letter-spacing:0.05em">FORM DATA IS RELAY-ONLY. NO PII STORAGE.</p>
           </form>
+        </div>
+        <div class="contact-form glass-card" style="border-color:rgba(255,215,0,0.4)">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem">
+            <div style="width:60px;height:60px;border-radius:16px;background:rgba(255,215,0,0.1);display:flex;align-items:center;justify-content:center">
+              <iconify-icon icon="lucide:settings" style="font-size:1.75rem;color:var(--tdx-yellow)"></iconify-icon>
+            </div>
+            <div>
+              <h3 style="font-size:1.5rem">Do it yourself</h3>
+              <p style="font-size:0.9rem;color:rgba(255,255,255,0.5)">For media agency planners and FMCG brand managers. TDX supports AdEx.</p>
+            </div>
+          </div>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:1.5rem">Here’s how — content to be provided by Janine/Marnus.</p>
+          <a href="mailto:info@tdx.media?subject=Do%20it%20yourself%20inquiry" class="btn-primary" style="width:100%;display:block;text-align:center;padding:1rem;background:var(--tdx-yellow);color:black;font-weight:700;border-radius:12px;text-decoration:none;box-sizing:border-box" id="contact-do-it-yourself">Get in touch</a>
         </div>
       </div>
     </div>
