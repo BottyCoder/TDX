@@ -22,9 +22,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@300;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --tdx-cyan: #00D0FF;
-      --tdx-gold: #C79143;
-      --tdx-blue: #1A498A;
+      /* Swapped per client: cyan→turquoise, gold→purple, blue→yellow */
+      --tdx-cyan: #40E0D0;
+      --tdx-gold: #B026D4;
+      --tdx-blue: #FFD700;
       --tdx-teal: #008080;
       --tdx-yellow: #FFD700;
       --tdx-charcoal: #333333;
@@ -130,8 +131,8 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem 1.5rem;
-      background: rgba(0,208,255,0.1);
-      border: 1px solid rgba(0,208,255,0.3);
+      background: rgba(64,224,208,0.1);
+      border: 1px solid rgba(64,224,208,0.3);
       border-radius: 100px;
       margin-bottom: 2rem;
     }
@@ -167,13 +168,13 @@
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 0 30px rgba(26,73,138,0.5);
+      box-shadow: 0 0 30px rgba(255,215,0,0.5);
       text-decoration: none;
       display: inline-block;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 40px rgba(26,73,138,0.6);
+      box-shadow: 0 10px 40px rgba(255,215,0,0.6);
     }
     .btn-secondary {
       padding: 1rem 2.5rem;
@@ -213,29 +214,29 @@
       bottom: 2rem;
       left: 2rem;
       padding: 0.5rem 1rem;
-      background: rgba(26,73,138,0.2);
-      border: 1px solid rgba(26,73,138,0.5);
+      background: rgba(255,215,0,0.2);
+      border: 1px solid rgba(255,215,0,0.5);
       border-radius: 100px;
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #1A498A;
+      color: #FFD700;
       z-index: 10;
     }
     .footer-link.trust { color: var(--tdx-blue); }
-    .footer-link.trust:hover { color: rgba(26,73,138,0.85); }
-    .hero-badge.trust { background: rgba(26,73,138,0.2); border-color: rgba(26,73,138,0.5); }
+    .footer-link.trust:hover { color: rgba(255,215,0,0.85); }
+    .hero-badge.trust { background: rgba(255,215,0,0.2); border-color: rgba(255,215,0,0.5); }
     .hero-badge.trust span { color: var(--tdx-blue); }
     .section { padding: 8rem 2rem; max-width: 1400px; margin: 0 auto; }
     .section-dark { background: #333333; }
     .section-alt { background: #333333; }
     .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .value-card { padding: 3rem 2rem; border-radius: 24px; transition: all 0.3s ease; }
-    .value-card-blue { border-color: rgba(26,73,138,0.3); }
+    .value-card-blue { border-color: rgba(255,215,0,0.3); }
     .value-card-blue:hover { border-color: var(--tdx-blue); }
-    .value-card-gold { border-color: rgba(199,145,67,0.3); }
+    .value-card-gold { border-color: rgba(176,38,212,0.3); }
     .value-card-gold:hover { border-color: var(--tdx-gold); }
-    .value-card-cyan { border-color: rgba(0,208,255,0.3); }
+    .value-card-cyan { border-color: rgba(64,224,208,0.3); }
     .value-card-cyan:hover { border-color: var(--tdx-cyan); }
     .value-icon {
       width: 64px;
@@ -389,25 +390,25 @@
     </div>
     <div class="value-grid">
       <div class="value-card value-card-blue glass-card">
-        <div class="value-icon" style="background:rgba(91,155,213,0.25);color:#8FC4F0">
+        <div class="value-icon" style="background:rgba(255,215,0,0.2);color:var(--tdx-blue)">
           <iconify-icon icon="lucide:shield"></iconify-icon>
         </div>
         <h3 style="font-size:1.75rem;margin-bottom:1rem">Trust & Compliance</h3>
         <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Enterprise-grade security with POPIA compliance at the core. Zero-risk architecture that protects partner data and user privacy.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
-          <li class="mono" style="font-size:0.8rem;color:#8FC4F0;display:flex;align-items:center;gap:0.5rem">
-            <iconify-icon icon="lucide:check" style="width:16px;color:#8FC4F0"></iconify-icon>POPIA & GDPR COMPLIANT
+          <li class="mono" style="font-size:0.8rem;color:var(--tdx-blue);display:flex;align-items:center;gap:0.5rem">
+            <iconify-icon icon="lucide:check" style="width:16px;color:var(--tdx-blue)"></iconify-icon>POPIA & GDPR COMPLIANT
           </li>
-          <li class="mono" style="font-size:0.8rem;color:#8FC4F0;display:flex;align-items:center;gap:0.5rem">
-            <iconify-icon icon="lucide:check" style="width:16px;color:#8FC4F0"></iconify-icon>ZERO DATABASE STORAGE
+          <li class="mono" style="font-size:0.8rem;color:var(--tdx-blue);display:flex;align-items:center;gap:0.5rem">
+            <iconify-icon icon="lucide:check" style="width:16px;color:var(--tdx-blue)"></iconify-icon>ZERO DATABASE STORAGE
           </li>
-          <li class="mono" style="font-size:0.8rem;color:#8FC4F0;display:flex;align-items:center;gap:0.5rem">
-            <iconify-icon icon="lucide:check" style="width:16px;color:#8FC4F0"></iconify-icon>ENCRYPTED DATA RELAY
+          <li class="mono" style="font-size:0.8rem;color:var(--tdx-blue);display:flex;align-items:center;gap:0.5rem">
+            <iconify-icon icon="lucide:check" style="width:16px;color:var(--tdx-blue)"></iconify-icon>ENCRYPTED DATA RELAY
           </li>
         </ul>
       </div>
       <div class="value-card value-card-gold glass-card">
-        <div class="value-icon" style="background:rgba(199,145,67,0.2);color:var(--tdx-gold)">
+        <div class="value-icon" style="background:rgba(176,38,212,0.2);color:var(--tdx-gold)">
           <iconify-icon icon="lucide:trending-up"></iconify-icon>
         </div>
         <h3 style="font-size:1.75rem;margin-bottom:1rem">Yield & Monetisation</h3>
@@ -425,7 +426,7 @@
         </ul>
       </div>
       <div class="value-card value-card-cyan glass-card">
-        <div class="value-icon" style="background:rgba(0,208,255,0.2);color:var(--tdx-cyan)">
+        <div class="value-icon" style="background:rgba(64,224,208,0.2);color:var(--tdx-cyan)">
           <iconify-icon icon="lucide:activity"></iconify-icon>
         </div>
         <h3 style="font-size:1.75rem;margin-bottom:1rem">Connectivity & Insights</h3>
@@ -471,7 +472,7 @@
     </div>
     <div class="solutions-grid">
       <div class="solution-card glass-card">
-        <div style="width:56px;height:56px;border-radius:14px;background:rgba(0,208,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(64,224,208,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
           <iconify-icon icon="lucide:shopping-bag" style="font-size:1.5rem;color:var(--tdx-cyan)"></iconify-icon>
         </div>
         <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Malls</h3>
@@ -491,7 +492,7 @@
         </a>
       </div>
       <div class="solution-card glass-card">
-        <div style="width:56px;height:56px;border-radius:14px;background:rgba(199,145,67,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(176,38,212,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
           <iconify-icon icon="lucide:heart-pulse" style="font-size:1.5rem;color:var(--tdx-gold)"></iconify-icon>
         </div>
         <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Health</h3>
@@ -501,7 +502,7 @@
         </a>
       </div>
       <div class="solution-card glass-card">
-        <div style="width:56px;height:56px;border-radius:14px;background:rgba(26,73,138,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(255,215,0,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
           <iconify-icon icon="lucide:building" style="font-size:1.5rem;color:var(--tdx-blue)"></iconify-icon>
         </div>
         <h3 style="font-size:1.35rem;margin-bottom:0.75rem">DHA</h3>
@@ -532,7 +533,7 @@
             </div>
             <span class="mono" style="font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase">Anonymised Performance Feed</span>
           </div>
-          <div style="padding:0.5rem 1rem;background:rgba(0,208,255,0.1);border:1px solid rgba(0,208,255,0.3);border-radius:100px">
+          <div style="padding:0.5rem 1rem;background:rgba(64,224,208,0.1);border:1px solid rgba(64,224,208,0.3);border-radius:100px">
             <span class="mono" style="font-size:0.7rem;color:var(--tdx-cyan);letter-spacing:0.05em">POPIA COMPLIANT DATA</span>
           </div>
         </div>
@@ -540,18 +541,18 @@
           <div style="background:rgba(0,0,0,0.3);border-radius:16px;padding:2rem;min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden">
             <div class="mono" style="position:absolute;top:1rem;left:1rem;font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase">Traffic Heatmap</div>
             <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0.5rem;width:100%;max-width:400px">
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.2);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.4);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.6);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.3);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.2);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.4);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.6);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.3);border-radius:8px"></div>
               <div style="aspect-ratio:1;background:rgba(124,59,237,0.5);border-radius:8px"></div>
               <div style="aspect-ratio:1;background:rgba(124,59,237,0.7);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.5);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.8);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.5);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.8);border-radius:8px"></div>
               <div style="aspect-ratio:1;background:var(--tdx-cyan);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(0,208,255,0.6);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(64,224,208,0.6);border-radius:8px"></div>
               <div style="aspect-ratio:1;background:rgba(124,59,237,0.6);border-radius:8px"></div>
-              <div style="aspect-ratio:1;background:rgba(199,145,67,0.4);border-radius:8px"></div>
+              <div style="aspect-ratio:1;background:rgba(176,38,212,0.4);border-radius:8px"></div>
             </div>
           </div>
           <div style="display:flex;flex-direction:column;gap:1rem">
@@ -670,7 +671,7 @@
   <section id="compliance" class="section section-dark">
     <div class="compliance-grid">
       <div style="position:relative">
-        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567737252-e57c8baa/FINAL_Think_Digital_logo-05.jpg" alt="TDX Compliance" style="position:relative;width:100%;max-width:450px;border-radius:24px;border:1px solid rgba(26,73,138,0.3);display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5)">
+        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567737252-e57c8baa/FINAL_Think_Digital_logo-05.jpg" alt="TDX Compliance" style="position:relative;width:100%;max-width:450px;border-radius:24px;border:1px solid rgba(255,215,0,0.3);display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5)">
       </div>
       <div>
         <div class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-blue);margin-bottom:1rem">Privacy by Architecture</div>
@@ -709,9 +710,9 @@
         <p style="font-size:1.25rem;color:rgba(255,255,255,0.6)">Select your path. Our team will respond within 24 hours.</p>
       </div>
       <div class="contact-grid">
-        <div class="contact-form glass-card" style="border-color:rgba(0,208,255,0.3)">
+        <div class="contact-form glass-card" style="border-color:rgba(64,224,208,0.3)">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem">
-            <div style="width:60px;height:60px;border-radius:16px;background:rgba(0,208,255,0.1);display:flex;align-items:center;justify-content:center">
+            <div style="width:60px;height:60px;border-radius:16px;background:rgba(64,224,208,0.1);display:flex;align-items:center;justify-content:center">
               <iconify-icon icon="lucide:building-2" style="font-size:1.75rem;color:var(--tdx-cyan)"></iconify-icon>
             </div>
             <div>
@@ -740,9 +741,9 @@
             <p class="mono" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:1rem;letter-spacing:0.05em">FORM DATA IS RELAY-ONLY. NO PII STORAGE.</p>
           </form>
         </div>
-        <div class="contact-form glass-card" style="border-color:rgba(199,145,67,0.3)">
+        <div class="contact-form glass-card" style="border-color:rgba(176,38,212,0.3)">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem">
-            <div style="width:60px;height:60px;border-radius:16px;background:rgba(199,145,67,0.1);display:flex;align-items:center;justify-content:center">
+            <div style="width:60px;height:60px;border-radius:16px;background:rgba(176,38,212,0.1);display:flex;align-items:center;justify-content:center">
               <iconify-icon icon="lucide:bar-chart-3" style="font-size:1.75rem;color:var(--tdx-gold)"></iconify-icon>
             </div>
             <div>
@@ -879,7 +880,7 @@
     import * as THREE from 'three';
     
     
-    const defaultColors = ['#00D0FF', '#1A498A', '#FFD700', '#C79143'];
+    const defaultColors = ['#40E0D0', '#FFD700', '#B026D4'];
     
     function LiquidEther({
       mouseForce = 25,
@@ -1709,7 +1710,7 @@
     function App() {
       return html`
         <${LiquidEther}
-          colors=${['#00D0FF', '#1A498A', '#FFD700', '#C79143']}
+          colors=${['#40E0D0', '#FFD700', '#B026D4']}
           mouseForce=${25}
           cursorSize=${120}
           resolution=${0.6}
