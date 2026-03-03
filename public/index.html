@@ -301,6 +301,7 @@
     .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 4rem; max-width: 1400px; margin: 0 auto; }
     .footer-link { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s ease; }
     .footer-link:hover { color: white; }
+    .footer-contact-label { min-height: 2.6em; margin-bottom: 0.5rem; }
     .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
     .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
     .nav-dropdown { position: relative; }
@@ -309,12 +310,13 @@
       position: absolute;
       top: 100%;
       left: 0;
-      margin-top: 0.5rem;
+      margin-top: 0;
       min-width: 180px;
       background: #2a2a2a;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
       padding: 0.5rem 0;
+      padding-top: 0.35rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
       z-index: 200;
     }
@@ -355,7 +357,14 @@
       </a>
       <nav style="display:flex;gap:2rem;align-items:center">
         <a href="#value" class="footer-link" id="nav-value-engine">TDX Value Engine</a>
-        <a href="#product" class="footer-link" id="nav-product">Product</a>
+        <div class="nav-dropdown">
+          <a href="#product" class="footer-link" id="nav-product" style="display:inline-flex;align-items:center;gap:0.35rem">Product <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
+          <div class="nav-dropdown-content">
+            <a href="#product">ThinkZone</a>
+            <a href="#">Digital Signage (New)</a>
+            <a href="#">eWallet &amp; Digital Vouchering (New)</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="#solutions" class="footer-link" id="nav-solutions" style="display:inline-flex;align-items:center;gap:0.35rem">Solutions <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
           <div class="nav-dropdown-content">
@@ -385,7 +394,7 @@
       </h1>
       <p class="hero-subtitle">Bridging the gap between enterprises and the mass market through AI-driven media. We don't just generate impressions; we decode audience behavior to turn data into dominant market share.</p>
       <div class="hero-ctas">
-        <a href="#contact" id="hero-partner-btn" class="btn-primary">Partner with TDX</a>
+        <a href="#contact" id="hero-partner-btn" class="btn-secondary">Partner with TDX</a>
         <a href="#media-kit" id="hero-advertiser-btn" class="btn-secondary">Advertise with TDX</a>
       </div>
     </div>
@@ -767,7 +776,7 @@
   <div class="gradient-line"></div>
 
   <section id="contact" class="section section-alt">
-    <div style="max-width:1000px;margin:0 auto">
+    <div style="max-width:1200px;margin:0 auto">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">Start the Conversation</h2>
         <p style="font-size:1.25rem;color:rgba(255,255,255,0.6)">Select your path. Our team will respond within 24 hours.</p>
@@ -908,17 +917,17 @@
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:1rem">Speak to one of our team members or book a demo.</p>
         <div class="footer-contact-grid" style="display:grid;grid-template-columns:repeat(3,minmax(10rem,1fr));gap:1rem;margin-bottom:1.5rem;font-size:0.9rem">
           <div style="min-width:0">
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.5rem">Platform Operations</p>
+            <p class="footer-contact-label" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7)">Platform Operations</p>
             <a href="tel:+27871591234" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 1234</a>
             <a href="mailto:info@tdx.media" class="footer-link" style="display:block;text-decoration:underline">info@tdx.media</a>
           </div>
           <div style="min-width:0">
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.5rem">Commercial</p>
+            <p class="footer-contact-label" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7)">Commercial</p>
             <a href="tel:+27871595678" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 5678</a>
             <a href="mailto:x@TDX.co.za" class="footer-link" style="display:block;text-decoration:underline">x@TDX.co.za</a>
           </div>
           <div style="min-width:0">
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.5rem">Compliance &amp; Security</p>
+            <p class="footer-contact-label" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7)">Compliance &amp; Security</p>
             <a href="tel:+27871599876" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 9876</a>
             <a href="mailto:y@tdx.co.za" class="footer-link" style="display:block;text-decoration:underline">y@tdx.co.za</a>
           </div>
