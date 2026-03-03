@@ -406,16 +406,20 @@
 
   <section id="value" class="section section-dark">
     <div style="text-align:center;max-width:800px;margin:0 auto">
+      <div style="display:inline-block;background:#fff;border-radius:16px;padding:1.5rem 2.5rem;margin:0 auto 1.5rem auto;box-shadow:0 12px 40px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.2)">
+        <img src="think-digital-logo.png" alt="Think Digital X" style="display:block;height:102px;width:auto;max-width:281px;object-fit:contain">
+      </div>
       <p class="mono" style="font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">TDX VALUE ENGINE</p>
-      <h2 style="font-size:clamp(3rem,7vw,5.25rem);margin-bottom:2rem">Three Streams.<br>One Powerful Intersection.</h2>
+      <h2 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2rem;line-height:1.2">Three powerful elements,<br><span style="font-size:0.72em;white-space:nowrap">One intelligent platform</span></h2>
     </div>
     <div class="value-grid">
       <div class="value-card value-card-blue glass-card">
         <div class="value-icon" style="background:rgba(255,215,0,0.2);color:var(--tdx-blue)">
           <iconify-icon icon="lucide:shield"></iconify-icon>
         </div>
-        <h3 style="font-size:1.75rem;margin-bottom:1rem">Trust & Compliance</h3>
-        <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Enterprise-grade security with POPIA compliance at the core. Zero-risk architecture that protects partner data and user privacy.</p>
+        <p class="mono" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:0.5rem">Purpose Driven results</p>
+        <h3 style="font-size:1.75rem;margin-bottom:1rem">Security & Compliance</h3>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">POPIA and GDPR compliance at the core, in a zero-trust architecture that protects audience and partner privacy.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
           <li class="mono" style="font-size:0.8rem;color:var(--tdx-blue);display:flex;align-items:center;gap:0.5rem">
             <iconify-icon icon="lucide:check" style="width:16px;color:var(--tdx-blue)"></iconify-icon>POPIA & GDPR COMPLIANT
@@ -432,6 +436,7 @@
         <div class="value-icon" style="background:rgba(176,38,212,0.2);color:var(--tdx-gold)">
           <iconify-icon icon="lucide:trending-up"></iconify-icon>
         </div>
+        <p class="mono" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:0.5rem">Powerful Reach</p>
         <h3 style="font-size:1.75rem;margin-bottom:1rem">Yield & Monetisation</h3>
         <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Transform physical infrastructure into predictable revenue streams. High-yield outcomes without capital expenditure.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
@@ -450,7 +455,8 @@
         <div class="value-icon" style="background:rgba(64,224,208,0.2);color:var(--tdx-cyan)">
           <iconify-icon icon="lucide:activity"></iconify-icon>
         </div>
-        <h3 style="font-size:1.75rem;margin-bottom:1rem">Connectivity & Insights</h3>
+        <p class="mono" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:0.5rem">Intelligent Publishing</p>
+        <h3 style="font-size:1.75rem;margin-bottom:1rem">Analytics &amp; Insights</h3>
         <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Real-time data transparency with anonymized behavioral mapping. Luminous data flow that powers intelligent decisions.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
           <li class="mono" style="font-size:0.8rem;color:var(--tdx-cyan);display:flex;align-items:center;gap:0.5rem">
@@ -474,7 +480,7 @@
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan)">Products</p>
     </div>
     <div class="product-catalogue" id="product-catalogue" role="list">
-      <div class="product-card center" data-product-index="0" role="listitem">
+      <div class="product-card" data-product-index="0" role="listitem">
         <span class="product-label mono">Product</span>
         <h3>ThinkZone</h3>
         <p class="product-tagline">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
@@ -510,16 +516,22 @@
           card.addEventListener('mouseenter', function() { setCenter(card); });
           card.addEventListener('focus', function() { setCenter(card); });
         });
+        function clearCenter() {
+          cards.forEach(function(c, i) {
+            c.classList.remove('center');
+            c.style.transform = '';
+            c.style.order = String(i + 1);
+          });
+        }
         catalogue.addEventListener('mouseleave', function() {
-          setCenter(cards[0]);
+          clearCenter();
         });
         catalogue.addEventListener('focusout', function(e) {
-          if (!catalogue.contains(e.relatedTarget)) setCenter(cards[0]);
+          if (!catalogue.contains(e.relatedTarget)) clearCenter();
         });
-        cards[0].style.order = '2';
-        cards[1].style.order = '1';
+        cards[0].style.order = '1';
+        cards[1].style.order = '2';
         cards[2].style.order = '3';
-        setCenter(cards[0]);
       })();
     </script>
   </section>
