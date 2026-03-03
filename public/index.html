@@ -214,20 +214,6 @@
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(10px); }
     }
-    .privacy-badge {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      padding: 0.5rem 1rem;
-      background: rgba(255,215,0,0.2);
-      border: 1px solid rgba(255,215,0,0.5);
-      border-radius: 100px;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #FFD700;
-      z-index: 10;
-    }
     .footer-link.trust { color: var(--tdx-blue); }
     .footer-link.trust:hover { color: rgba(255,215,0,0.85); }
     .hero-badge.trust { background: rgba(255,215,0,0.2); border-color: rgba(255,215,0,0.5); }
@@ -257,6 +243,14 @@
     .solution-card { display: flex; flex-direction: column; padding: 2rem; border-radius: 20px; transition: all 0.3s ease; }
     .solution-card:hover { transform: translateY(-5px); }
     .solution-card > a:last-of-type { margin-top: auto; }
+    .product-catalogue { display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; margin-top: 3rem; flex-wrap: nowrap; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+    .product-catalogue .product-card { flex: 1; min-width: 0; max-width: 420px; transition: transform 0.35s ease, flex 0.35s ease; transform: scale(0.94); cursor: pointer; }
+    .product-catalogue .product-card.center { transform: scale(1); flex: 1.1; }
+    .product-card { padding: 2rem; border-radius: 24px; background: #3F3F3F; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; }
+    .product-card .product-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tdx-cyan); margin-bottom: 0.75rem; }
+    .product-card h3 { font-size: clamp(1.5rem,3vw,2rem); margin-bottom: 0.75rem; line-height: 1.2; }
+    .product-card .product-tagline { font-size: 0.95rem; color: var(--tdx-gold); margin-bottom: 1rem; font-weight: 600; }
+    .product-card .product-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0; }
     .dashboard-container { position: relative; border-radius: 24px; overflow: hidden; margin-top: 4rem; }
     .dashboard-frame { background: #3F3F3F; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5); }
     .media-kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
@@ -343,6 +337,9 @@
       .footer-contact-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: 2.5rem; }
       .section { padding: 4rem 1.5rem; }
+      .product-catalogue { flex-direction: column; align-items: center; }
+      .product-catalogue .product-card { max-width: 100%; transform: none; flex: none; }
+      .product-catalogue .product-card.center { transform: none; flex: none; }
     }
   </style>
 </head>
@@ -402,7 +399,6 @@
       <span class="mono" style="font-size:0.7rem;letter-spacing:0.15em">SCROLL TO EXPLORE</span>
       <iconify-icon icon="lucide:chevron-down"></iconify-icon>
     </div>
-    <div class="privacy-badge" style="bottom:6rem;top:auto">Privacy-First Architecture</div>
   </section>
 
   <div class="gradient-divider"></div>
@@ -473,12 +469,57 @@
   <div class="gradient-line"></div>
 
   <section id="product" class="section section-dark">
-    <div style="text-align:center;max-width:800px;margin:0 auto">
-      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">Product</p>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem">ThinkZone</h2>
-      <p style="font-size:1.1rem;color:var(--tdx-gold);margin-bottom:1rem;font-weight:600">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,0.7);line-height:1.7">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+    <div style="text-align:center;margin-bottom:0.5rem">
+      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan)">Product</p>
     </div>
+    <div class="product-catalogue" id="product-catalogue" role="list">
+      <div class="product-card center" data-product-index="0" role="listitem">
+        <span class="product-label mono">Product</span>
+        <h3>ThinkZone</h3>
+        <p class="product-tagline">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
+        <p class="product-desc">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+      </div>
+      <div class="product-card" data-product-index="1" role="listitem">
+        <span class="product-label mono">Product</span>
+        <h3>Digital Signage (New)</h3>
+        <p class="product-tagline">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
+        <p class="product-desc">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+      </div>
+      <div class="product-card" data-product-index="2" role="listitem">
+        <span class="product-label mono">Product</span>
+        <h3>eWallet &amp; Digital Vouchering (New)</h3>
+        <p class="product-tagline">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
+        <p class="product-desc">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var catalogue = document.getElementById('product-catalogue');
+        if (!catalogue) return;
+        var cards = catalogue.querySelectorAll('.product-card');
+        function setCenter(el) {
+          var centerIdx = [].indexOf.call(cards, el);
+          cards.forEach(function(c, i) {
+            c.classList.toggle('center', c === el);
+            c.style.order = (i === centerIdx) ? '2' : (i < centerIdx) ? '1' : '3';
+          });
+        }
+        cards.forEach(function(card) {
+          card.addEventListener('mouseenter', function() { setCenter(card); });
+          card.addEventListener('focus', function() { setCenter(card); });
+        });
+        catalogue.addEventListener('mouseleave', function() {
+          setCenter(cards[0]);
+        });
+        catalogue.addEventListener('focusout', function(e) {
+          if (!catalogue.contains(e.relatedTarget)) setCenter(cards[0]);
+        });
+        cards[0].style.order = '2';
+        cards[1].style.order = '1';
+        cards[2].style.order = '3';
+        setCenter(cards[0]);
+      })();
+    </script>
   </section>
 
   <div class="gradient-line"></div>
