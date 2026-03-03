@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Think Digital X | High Yield, Zero CapEx, Maximum Trust</title>
-  <!-- deploy v=2 -->
+  <!-- deploy v=3 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -244,8 +244,8 @@
     .solution-card:hover { transform: translateY(-5px); }
     .solution-card > a:last-of-type { margin-top: auto; }
     .product-catalogue { display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; margin-top: 3rem; flex-wrap: nowrap; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
-    .product-catalogue .product-card { flex: 1; min-width: 0; max-width: 420px; transition: transform 0.35s ease, flex 0.35s ease; transform: scale(0.94); cursor: pointer; }
-    .product-catalogue .product-card.center { transform: scale(1); flex: 1.1; }
+    .product-catalogue .product-card { flex: 1; min-width: 0; max-width: 420px; transition: transform 0.3s ease, box-shadow 0.3s ease; transform: scale(0.92); cursor: pointer; }
+    .product-catalogue .product-card.center { transform: scale(1.06); flex: 1.12; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.12); }
     .product-card { padding: 2rem; border-radius: 24px; background: #3F3F3F; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; }
     .product-card .product-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tdx-cyan); margin-bottom: 0.75rem; }
     .product-card h3 { font-size: clamp(1.5rem,3vw,2rem); margin-bottom: 0.75rem; line-height: 1.2; }
@@ -338,8 +338,9 @@
       .hero-title { font-size: 2.5rem; }
       .section { padding: 4rem 1.5rem; }
       .product-catalogue { flex-direction: column; align-items: center; }
-      .product-catalogue .product-card { max-width: 100%; transform: none; flex: none; }
-      .product-catalogue .product-card.center { transform: none; flex: none; }
+      .product-catalogue .product-card { max-width: 100%; transform: none !important; flex: none; }
+      .product-catalogue .product-card.center { transform: none !important; }
+      .product-catalogue .product-card.center { flex: none; }
     }
   </style>
 </head>
@@ -501,6 +502,7 @@
           var centerIdx = [].indexOf.call(cards, el);
           cards.forEach(function(c, i) {
             c.classList.toggle('center', c === el);
+            c.style.transform = '';
             c.style.order = (i === centerIdx) ? '2' : (i < centerIdx) ? '1' : '3';
           });
         }
