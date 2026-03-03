@@ -16,11 +16,11 @@ PORT = "5000"
 deploymentTarget = "static"
 publicDir = "public"
 
-# Force no cache on HTML so updates show after deploy (browsers + CDNs)
+# Strict anti-cache on HTML so updates show after deploy (browsers + CDNs)
 [[deployment.responseHeaders]]
 path = "/"
 name = "Cache-Control"
-value = "no-store, no-cache, must-revalidate, max-age=0"
+value = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
 [[deployment.responseHeaders]]
 path = "/"
 name = "Pragma"
@@ -30,9 +30,13 @@ path = "/"
 name = "Expires"
 value = "0"
 [[deployment.responseHeaders]]
+path = "/"
+name = "Surrogate-Control"
+value = "no-store"
+[[deployment.responseHeaders]]
 path = "/index.html"
 name = "Cache-Control"
-value = "no-store, no-cache, must-revalidate, max-age=0"
+value = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
 [[deployment.responseHeaders]]
 path = "/index.html"
 name = "Pragma"
@@ -41,6 +45,10 @@ value = "no-cache"
 path = "/index.html"
 name = "Expires"
 value = "0"
+[[deployment.responseHeaders]]
+path = "/index.html"
+name = "Surrogate-Control"
+value = "no-store"
 
 [workflows]
 runButton = "Project"
