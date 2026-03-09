@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Think Digital X | High Yield, Zero CapEx, Maximum Trust</title>
-  <!-- deploy v=2 -->
+  <!-- deploy v=4 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -142,7 +142,7 @@
       margin-bottom: 2rem;
     }
     .hero-title {
-      font-size: clamp(1.5rem, 4vw, 3.5rem);
+      font-size: clamp(3rem, 8vw, 7rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -152,11 +152,11 @@
     .hero-title .cyan { color: var(--tdx-cyan); }
     .hero-title .gold { color: var(--tdx-gold); }
     .hero-subtitle {
-      font-size: clamp(0.95rem, 1.75vw, 1.25rem);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
       color: rgba(255,255,255,0.7);
       max-width: 700px;
       margin-bottom: 3rem;
-      line-height: 1.75;
+      line-height: 1.6;
     }
     .hero-ctas {
       display: flex;
@@ -196,6 +196,16 @@
     .btn-secondary:hover {
       background: rgba(255,255,255,0.1);
       border-color: rgba(255,255,255,0.5);
+    }
+    #hero-partner-btn {
+      background: transparent !important;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: none !important;
+    }
+    #hero-partner-btn:hover {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.5);
+      box-shadow: none !important;
     }
     .scroll-indicator {
       position: absolute;
@@ -243,6 +253,14 @@
     .solution-card { display: flex; flex-direction: column; padding: 2rem; border-radius: 20px; transition: all 0.3s ease; }
     .solution-card:hover { transform: translateY(-5px); }
     .solution-card > a:last-of-type { margin-top: auto; }
+    .product-catalogue { display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; margin-top: 3rem; flex-wrap: nowrap; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+    .product-catalogue .product-card { flex: 1; min-width: 0; max-width: 420px; transition: transform 0.3s ease, box-shadow 0.3s ease; transform: scale(0.92); cursor: pointer; }
+    .product-catalogue .product-card.center { transform: scale(1.06); flex: 1.12; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.12); }
+    .product-card { padding: 2rem; border-radius: 24px; background: #3F3F3F; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; }
+    .product-card .product-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tdx-cyan); margin-bottom: 0.75rem; }
+    .product-card h3 { font-size: clamp(1.5rem,3vw,2rem); margin-bottom: 0.75rem; line-height: 1.2; }
+    .product-card .product-tagline { font-size: 0.95rem; color: var(--tdx-gold); margin-bottom: 1rem; font-weight: 600; }
+    .product-card .product-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0; }
     .dashboard-container { position: relative; border-radius: 24px; overflow: hidden; margin-top: 4rem; }
     .dashboard-frame { background: #3F3F3F; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5); }
     .media-kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
@@ -259,8 +277,8 @@
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
     .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
-    .contact-form { padding: 2.5rem; border-radius: 24px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 4rem; }
+    .contact-form { padding: 1rem; border-radius: 24px; }
     .form-group { margin-bottom: 1.5rem; }
     .form-label {
       display: block;
@@ -273,7 +291,8 @@
     }
     .form-input {
       width: 100%;
-      padding: 1rem;
+      padding: 0.6rem 0.5rem;
+      box-sizing: border-box;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
@@ -287,6 +306,8 @@
     .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 4rem; max-width: 1400px; margin: 0 auto; }
     .footer-link { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s ease; }
     .footer-link:hover { color: white; }
+    .nav-x-icon { height: 1.25em; width: auto; vertical-align: middle; flex-shrink: 0; }
+    .footer-contact-label { min-height: 2.6em; margin-bottom: 0.5rem; }
     .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
     .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
     .nav-dropdown { position: relative; }
@@ -295,12 +316,13 @@
       position: absolute;
       top: 100%;
       left: 0;
-      margin-top: 0.5rem;
+      margin-top: 0;
       min-width: 180px;
       background: #2a2a2a;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
       padding: 0.5rem 0;
+      padding-top: 0.35rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
       z-index: 200;
     }
@@ -325,8 +347,12 @@
     @media (max-width: 768px) {
       .value-grid, .solutions-grid, .team-grid { grid-template-columns: 1fr; }
       .footer-contact-grid { grid-template-columns: 1fr; }
-      .hero-title { font-size: 1.25rem; }
+      .hero-title { font-size: 2.5rem; }
       .section { padding: 4rem 1.5rem; }
+      .product-catalogue { flex-direction: column; align-items: center; }
+      .product-catalogue .product-card { max-width: 100%; transform: none !important; flex: none; }
+      .product-catalogue .product-card.center { transform: none !important; }
+      .product-catalogue .product-card.center { flex: none; }
     }
   </style>
 </head>
@@ -334,23 +360,30 @@
   <div class="noise-overlay"></div>
   <div class="vignette-overlay"></div>
   
+  <!-- deploy: header-logo-on value-section-white-logo-removed -->
   <header style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;background:linear-gradient(to bottom,rgba(0,0,0,0.8),transparent)">
     <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
       <a href="#" id="nav-logo-link" style="display:flex;align-items:center">
-        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567741325-ad26bb0b/White_Color__X_FINAL_Think_Digital_logo_-_Transparent_Background-02.png" alt="Think Digital X" style="height:112px;min-width:240px;object-fit:contain">
+        <img src="/header-logo.png" alt="Think Digital X" style="height:112px;min-width:240px;object-fit:contain" loading="eager">
       </a>
       <nav style="display:flex;gap:2rem;align-items:center">
-        <a href="#value" class="footer-link" id="nav-value-engine">TDX Value Engine</a>
-        <a href="#product" class="footer-link" id="nav-product">Product</a>
+        <a href="#value" class="footer-link" id="nav-value-engine" style="display:inline-flex;align-items:center;gap:0.35rem"><img src="/nav-x-logo.png" alt="" class="nav-x-icon" aria-hidden="true"> Value Engine</a>
         <div class="nav-dropdown">
-          <a href="#solutions" class="footer-link" id="nav-solutions" style="display:inline-flex;align-items:center;gap:0.35rem">Solutions <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
+          <a href="#product" class="footer-link" id="nav-product" style="display:inline-flex;align-items:center;gap:0.35rem"><img src="/nav-x-logo.png" alt="" class="nav-x-icon" aria-hidden="true"> Products <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
+          <div class="nav-dropdown-content">
+            <a href="#product">ThinkZone</a>
+            <a href="#">eWallet &amp; Digital Vouchering (New)</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#solutions" class="footer-link" id="nav-solutions" style="display:inline-flex;align-items:center;gap:0.35rem"><img src="/nav-x-logo.png" alt="" class="nav-x-icon" aria-hidden="true"> Solutions <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
           <div class="nav-dropdown-content">
             <a href="#solutions">All Solutions</a>
             <a href="#malls">Malls</a>
             <a href="#townships">Townships</a>
             <a href="#health">Health</a>
-            <a href="#dha">DHA</a>
-            <a href="#taxi-ranks">Taxi Ranks</a>
+            <a href="#dha">Public Offices</a>
+            <a href="#taxi-ranks">Transport Hubs</a>
           </div>
         </div>
         <a href="#dashboard" class="footer-link" id="nav-dashboard">Your Dashboard</a>
@@ -369,7 +402,7 @@
         <span class="word">Powerful <span class="cyan">Reach,</span></span>
         <span class="word">Purpose-driven <span class="gradient-text">Results</span></span>
       </h1>
-      <p class="hero-subtitle">Bridging the gap between venue partners or advertisers and the mainstream market through large scale Wifi networks and relevant media. We don't just generate impressions, we partner to generate sustainable growth.</p>
+      <p class="hero-subtitle">Bridging the gap between enterprises and the mass market through AI-driven media. We don't just generate impressions; we decode audience behavior to turn data into dominant market share.</p>
       <div class="hero-ctas">
         <a href="#contact" id="hero-partner-btn" class="btn-secondary">Partner with TDX</a>
         <a href="#media-kit" id="hero-advertiser-btn" class="btn-secondary">Advertise with TDX</a>
@@ -386,15 +419,17 @@
   <section id="value" class="section section-dark">
     <div style="text-align:center;max-width:800px;margin:0 auto">
       <p class="mono" style="font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">TDX VALUE ENGINE</p>
-      <h2 style="font-size:clamp(3rem,7vw,5.25rem);margin-bottom:2rem">Three Streams.<br>One Powerful Intersection.</h2>
+      <h2 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:0.75rem;line-height:1.2">Three powerful elements,<br><span style="font-size:0.72em;white-space:nowrap">One intelligent platform</span></h2>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.7);line-height:1.6;max-width:640px;margin:0 auto 2rem auto">Three powerful elements merge into the most impactful mass market advertising platform seen to date.</p>
     </div>
     <div class="value-grid">
       <div class="value-card value-card-blue glass-card">
         <div class="value-icon" style="background:rgba(255,215,0,0.2);color:var(--tdx-blue)">
           <iconify-icon icon="lucide:shield"></iconify-icon>
         </div>
-        <h3 style="font-size:1.75rem;margin-bottom:1rem">Trust & Compliance</h3>
-        <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Enterprise-grade security with POPIA compliance at the core. Zero-risk architecture that protects partner data and user privacy.</p>
+        <p class="mono" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:0.5rem">Purpose Driven results</p>
+        <h3 style="font-size:1.75rem;margin-bottom:1rem">Security & Compliance</h3>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">POPIA and GDPR compliance at the core, in a zero-trust architecture that protects audience and partner privacy.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
           <li class="mono" style="font-size:0.8rem;color:var(--tdx-blue);display:flex;align-items:center;gap:0.5rem">
             <iconify-icon icon="lucide:check" style="width:16px;color:var(--tdx-blue)"></iconify-icon>POPIA & GDPR COMPLIANT
@@ -411,6 +446,7 @@
         <div class="value-icon" style="background:rgba(176,38,212,0.2);color:var(--tdx-gold)">
           <iconify-icon icon="lucide:trending-up"></iconify-icon>
         </div>
+        <p class="mono" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:0.5rem">Powerful Reach</p>
         <h3 style="font-size:1.75rem;margin-bottom:1rem">Yield & Monetisation</h3>
         <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Transform physical infrastructure into predictable revenue streams. High-yield outcomes without capital expenditure.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
@@ -429,7 +465,8 @@
         <div class="value-icon" style="background:rgba(64,224,208,0.2);color:var(--tdx-cyan)">
           <iconify-icon icon="lucide:activity"></iconify-icon>
         </div>
-        <h3 style="font-size:1.75rem;margin-bottom:1rem">Connectivity & Insights</h3>
+        <p class="mono" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:0.5rem">Intelligent Publishing</p>
+        <h3 style="font-size:1.75rem;margin-bottom:1rem">Analytics &amp; Insights</h3>
         <p style="color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem">Real-time data transparency with anonymized behavioral mapping. Luminous data flow that powers intelligent decisions.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
           <li class="mono" style="font-size:0.8rem;color:var(--tdx-cyan);display:flex;align-items:center;gap:0.5rem">
@@ -449,12 +486,58 @@
   <div class="gradient-line"></div>
 
   <section id="product" class="section section-dark">
-    <div style="text-align:center;max-width:800px;margin:0 auto">
-      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">Product</p>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem">ThinkZone</h2>
-      <p style="font-size:1.1rem;color:var(--tdx-gold);margin-bottom:1rem;font-weight:600">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,0.7);line-height:1.7">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+    <div style="text-align:center;margin-bottom:0.5rem">
+      <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan)">Products</p>
     </div>
+    <div class="product-catalogue" id="product-catalogue" role="list">
+      <div class="product-card" data-product-index="0" role="listitem">
+        <span class="product-label mono">Product</span>
+        <h3>ThinkZone</h3>
+        <p class="product-tagline">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
+        <p class="product-desc">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+      </div>
+      <div class="product-card" data-product-index="1" role="listitem">
+        <span class="product-label mono">Product</span>
+        <h3>eWallet &amp; Digital Vouchering <span style="font-weight:normal;color:rgba(255,255,255,0.6);font-size:0.75em">(New)</span></h3>
+        <p class="product-tagline">Intelligent Publishing | Powerful Reach | Purpose-Driven Results</p>
+        <p class="product-desc">ThinkZone enables agencies, brands and malls to engage high-value audiences through an AI-enabled digital publishing platform built for precision, performance and scale—turning every connection into measurable growth and every engagement into tangible impact.</p>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var catalogue = document.getElementById('product-catalogue');
+        if (!catalogue) return;
+        var cards = catalogue.querySelectorAll('.product-card');
+        function setCenter(el) {
+          var centerIdx = [].indexOf.call(cards, el);
+          cards.forEach(function(c, i) {
+            c.classList.toggle('center', c === el);
+            c.style.transform = '';
+            c.style.order = (i === centerIdx) ? '2' : (i < centerIdx) ? '1' : '3';
+          });
+        }
+        cards.forEach(function(card) {
+          card.addEventListener('mouseenter', function() { setCenter(card); });
+          card.addEventListener('focus', function() { setCenter(card); });
+        });
+        function clearCenter() {
+          cards.forEach(function(c, i) {
+            c.classList.remove('center');
+            c.style.transform = '';
+            c.style.order = String(i + 1);
+          });
+        }
+        catalogue.addEventListener('mouseleave', function() {
+          clearCenter();
+        });
+        catalogue.addEventListener('focusout', function(e) {
+          if (!catalogue.contains(e.relatedTarget)) clearCenter();
+        });
+        cards[0].style.order = '1';
+        cards[1].style.order = '2';
+        cards[2].style.order = '3';
+      })();
+    </script>
   </section>
 
   <div class="gradient-line"></div>
@@ -463,7 +546,7 @@
     <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:3rem">
       <div>
         <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-gold);margin-bottom:1rem">Solutions</p>
-        <h2 style="font-size:clamp(2.75rem,6vw,4.5rem);margin-bottom:1rem">Targeted Deployments</h2>
+        <h2 style="font-size:clamp(2.75rem,6vw,4.5rem);margin-bottom:1rem">Target Media Networks</h2>
         <p style="font-size:1.4rem;color:rgba(255,255,255,0.6)">High-traffic environments across South Africa.</p>
       </div>
       <a href="#" class="mono" style="font-size:0.85rem;color:var(--tdx-cyan);display:flex;align-items:center;gap:0.5rem;text-decoration:none" id="view-all-solutions">
@@ -505,7 +588,7 @@
         <div style="width:56px;height:56px;border-radius:14px;background:rgba(255,215,0,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
           <iconify-icon icon="lucide:building" style="font-size:1.5rem;color:var(--tdx-blue)"></iconify-icon>
         </div>
-        <h3 style="font-size:1.35rem;margin-bottom:0.75rem">DHA</h3>
+        <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Public Offices</h3>
         <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">23 Department of Home Affairs sites (in build)—making a stay at Home Affairs more productive, with access to e‑government services.</p>
         <a href="#dha" style="color:var(--tdx-blue);font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-dha">
           Learn more <iconify-icon icon="lucide:chevron-right" style="font-size:0.8rem"></iconify-icon>
@@ -515,7 +598,7 @@
         <div style="width:56px;height:56px;border-radius:14px;background:rgba(255,215,0,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
           <iconify-icon icon="lucide:map-pin" style="font-size:1.5rem;color:var(--tdx-blue)"></iconify-icon>
         </div>
-        <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Taxi Ranks</h3>
+        <h3 style="font-size:1.35rem;margin-bottom:0.75rem">Transport Hubs</h3>
         <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">ThinkZone at taxi ranks—high-traffic commuter touchpoints. Content to be finalised.</p>
         <a href="#taxi-ranks" style="color:var(--tdx-blue);font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem" id="solution-taxi-ranks">
           Learn more <iconify-icon icon="lucide:chevron-right" style="font-size:0.8rem"></iconify-icon>
@@ -529,7 +612,7 @@
   <section id="dashboard" class="section section-dark">
     <div style="text-align:center;max-width:700px;margin:0 auto 4rem">
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">Analytics</p>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">Full Transparency Engine</h2>
+      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem"><span style="white-space:nowrap">Transparent Reporting &amp;</span><br>Analytics Engine</h2>
       <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">Anonymised, real-time reporting. TDX proprietary, AI led &quot;Dashboard X&quot;.</p>
     </div>
     <div class="dashboard-container">
@@ -604,24 +687,20 @@
         <div class="glass-card" style="position:relative;padding:2rem;border-radius:24px">
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem">
             <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:16px">
-              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-gold);margin-bottom:0.5rem">275k</div>
-              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Audience</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.25rem">Reach: Unique</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.6)">Monthly</div>
+              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-gold);margin-bottom:0.5rem">12.5M+</div>
+              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Monthly Reach</div>
             </div>
             <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:16px">
-              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-cyan);margin-bottom:0.5rem">10m</div>
-              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Impressions</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.25rem">monthly</div>
+              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-cyan);margin-bottom:0.5rem">450+</div>
+              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Active Nodes</div>
             </div>
             <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:16px">
-              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-yellow);margin-bottom:0.5rem">850</div>
-              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Venues:</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.25rem">Nationally</div>
+              <div style="font-size:2.5rem;font-weight:800;color:var(--tdx-yellow);margin-bottom:0.5rem">98%</div>
+              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.05em">Brand Safe = IAB and Google, Popia and GDPR compliant</div>
             </div>
             <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:16px">
-              <div style="font-size:2.5rem;font-weight:800;color:white;margin-bottom:0.5rem">96%</div>
-              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Viewability</div>
+              <div style="font-size:2.5rem;font-weight:800;color:white;margin-bottom:0.5rem">4.2x</div>
+              <div class="mono" style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase">Avg. ROAS</div>
             </div>
           </div>
         </div>
@@ -690,8 +769,8 @@
   <section id="team" class="section section-alt">
     <div style="text-align:center;max-width:700px;margin:0 auto 4rem">
       <p class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-cyan);margin-bottom:1rem">The Team</p>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">One team. One group.</h2>
-      <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">A team of enterprise infrastructure veterans and programmatic media specialists.</p>
+      <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">One team.<br>One group.</h2>
+      <p style="font-size:1.25rem;color:rgba(255,255,255,0.6);line-height:1.7">Meet the team</p>
     </div>
     <div style="text-align:center;margin-bottom:4rem">
       <div class="team-group-photo" style="width:100%;max-width:720px;margin:0 auto;min-height:280px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);box-shadow:0 20px 40px rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
@@ -716,30 +795,6 @@
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Ensuring POPIA compliance and maintaining zero-PII architecture across all data flows.</p>
       </div>
     </div>
-
-    <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(255,255,255,0.08)">
-      <div style="text-align:center;margin-bottom:1.5rem">
-        <h4 style="font-size:0.85rem;font-weight:700;margin-bottom:0.5rem;color:white">Get in touch:</h4>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin:0">Speak to one of our team members or book a demo.</p>
-      </div>
-      <div class="footer-contact-grid" style="display:grid;grid-template-columns:repeat(3,minmax(10rem,1fr));gap:1.5rem;font-size:0.9rem;max-width:1000px;margin:0 auto">
-        <div style="padding:1.25rem;border:1px solid rgba(255,255,255,0.12);border-radius:16px;min-width:0">
-          <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.75rem">Platform Operations</p>
-          <a href="tel:+27871591234" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 1234</a>
-          <a href="mailto:info@tdx.media" class="footer-link" style="display:block;text-decoration:underline">info@tdx.media</a>
-        </div>
-        <div style="padding:1.25rem;border:1px solid rgba(255,255,255,0.12);border-radius:16px;min-width:0">
-          <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.75rem">Commercial</p>
-          <a href="tel:+27871595678" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 5678</a>
-          <a href="mailto:x@TDX.co.za" class="footer-link" style="display:block;text-decoration:underline">x@TDX.co.za</a>
-        </div>
-        <div style="padding:1.25rem;border:1px solid rgba(255,255,255,0.12);border-radius:16px;min-width:0">
-          <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.75rem">Compliance &amp; Security</p>
-          <a href="tel:+27871599876" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 9876</a>
-          <a href="mailto:y@tdx.co.za" class="footer-link" style="display:block;text-decoration:underline">y@tdx.co.za</a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <div class="gradient-line"></div>
@@ -751,7 +806,7 @@
       </div>
       <div>
         <div class="mono" style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tdx-blue);margin-bottom:1rem">Privacy by Architecture</div>
-        <h2 style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1.5rem;line-height:1.2">Maximum Trust Is Our Infrastructure Core</h2>
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1.5rem;line-height:1.2">High Trust Ad Tech, Security is Core</h2>
         <p style="font-size:1.15rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:2rem">Think Digital X is built from the ground up to be POPIA and GDPR compliant. We collect signals, not identities. Our proprietary processing engine ensures that PII never hits our servers.</p>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:2rem">
           <div style="padding:1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:flex-start;gap:1rem">
@@ -780,7 +835,7 @@
   <div class="gradient-line"></div>
 
   <section id="contact" class="section section-alt">
-    <div style="max-width:1000px;margin:0 auto">
+    <div style="max-width:1200px;margin:0 auto">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem">Start the Conversation</h2>
         <p style="font-size:1.25rem;color:rgba(255,255,255,0.6)">Select your path. Our team will respond within 24 hours.</p>
@@ -921,17 +976,17 @@
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:1rem">Speak to one of our team members or book a demo.</p>
         <div class="footer-contact-grid" style="display:grid;grid-template-columns:repeat(3,minmax(10rem,1fr));gap:1rem;margin-bottom:1.5rem;font-size:0.9rem">
           <div style="min-width:0">
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.5rem">Platform Operations</p>
+            <p class="footer-contact-label" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7)">Platform Operations</p>
             <a href="tel:+27871591234" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 1234</a>
             <a href="mailto:info@tdx.media" class="footer-link" style="display:block;text-decoration:underline">info@tdx.media</a>
           </div>
           <div style="min-width:0">
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.5rem">Commercial</p>
+            <p class="footer-contact-label" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7)">Commercial</p>
             <a href="tel:+27871595678" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 5678</a>
             <a href="mailto:x@TDX.co.za" class="footer-link" style="display:block;text-decoration:underline">x@TDX.co.za</a>
           </div>
           <div style="min-width:0">
-            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:0.5rem">Compliance &amp; Security</p>
+            <p class="footer-contact-label" style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7)">Compliance &amp; Security</p>
             <a href="tel:+27871599876" class="footer-link" style="display:block;margin-bottom:0.25rem;white-space:nowrap">+27 87 159 9876</a>
             <a href="mailto:y@tdx.co.za" class="footer-link" style="display:block;text-decoration:underline">y@tdx.co.za</a>
           </div>
@@ -949,7 +1004,6 @@
         <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;color:white">Products</h4>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem">
           <li><a href="#product" class="footer-link" id="footer-thinkzone">ThinkZone</a></li>
-          <li><a href="#" class="footer-link" id="footer-digital-signage">Digital Signage (New)</a></li>
           <li><a href="#" class="footer-link" id="footer-ewallet">eWallet &amp; Digital Vouchering (New)</a></li>
         </ul>
       </div>
@@ -966,8 +1020,8 @@
           <li><a href="#malls" class="footer-link" id="footer-malls">Malls</a></li>
           <li><a href="#townships" class="footer-link" id="footer-townships">Townships</a></li>
           <li><a href="#health" class="footer-link" id="footer-health">Health</a></li>
-          <li><a href="#dha" class="footer-link" id="footer-dha">DHA</a></li>
-          <li><a href="#taxi-ranks" class="footer-link" id="footer-taxi-ranks">Taxi Ranks</a></li>
+          <li><a href="#dha" class="footer-link" id="footer-dha">Public Offices</a></li>
+          <li><a href="#taxi-ranks" class="footer-link" id="footer-taxi-ranks">Transport Hubs</a></li>
         </ul>
       </div>
       <div>
