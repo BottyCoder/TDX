@@ -50,38 +50,6 @@ value = "0"
 path = "/index.html"
 name = "Surrogate-Control"
 value = "no-store"
-[[deployment.responseHeaders]]
-path = "/index-latest.html"
-name = "Cache-Control"
-value = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-[[deployment.responseHeaders]]
-path = "/index-latest.html"
-name = "Pragma"
-value = "no-cache"
-[[deployment.responseHeaders]]
-path = "/index-latest2.html"
-name = "Cache-Control"
-value = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-[[deployment.responseHeaders]]
-path = "/index-latest2.html"
-name = "Pragma"
-value = "no-cache"
-[[deployment.responseHeaders]]
-path = "/index-latest3.html"
-name = "Cache-Control"
-value = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-[[deployment.responseHeaders]]
-path = "/index-latest3.html"
-name = "Pragma"
-value = "no-cache"
-[[deployment.responseHeaders]]
-path = "/index-latest3.html"
-name = "Expires"
-value = "0"
-[[deployment.responseHeaders]]
-path = "/index-latest3.html"
-name = "Surrogate-Control"
-value = "no-store"
 
 [workflows]
 runButton = "Project"
