@@ -13,20 +13,29 @@ const NO_CACHE_HEADERS = {
   'Surrogate-Control': 'no-store',
 };
 
+function serveHtml(res, filePath) {
+  try {
+    const html = fs.readFileSync(filePath, 'utf8');
+    res.set(NO_CACHE_HEADERS);
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.send(html);
+  } catch (err) {
+    res.status(500).send('Error loading page');
+  }
+}
+
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.get('/', (req, res) => {
-  const html = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8');
-  res.set(NO_CACHE_HEADERS);
-  res.set('Content-Type', 'text/html; charset=utf-8');
-  res.send(html);
+  serveHtml(res, path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/:page.html', (req, res) => {
   const filePath = path.join(__dirname, 'public', `${req.params.page}.html`);
   if (fs.existsSync(filePath)) {
-    const html = fs.readFileSync(filePath, 'utf8');
-    res.set(NO_CACHE_HEADERS);
-    res.set('Content-Type', 'text/html; charset=utf-8');
-    res.send(html);
+    serveHtml(res, filePath);
   } else {
     res.status(404).send('Page not found');
   }
@@ -53,10 +62,7 @@ app.get('/header-logo.png', (req, res) => {
 });
 
 app.use((req, res) => {
-  const html = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8');
-  res.set(NO_CACHE_HEADERS);
-  res.set('Content-Type', 'text/html; charset=utf-8');
-  res.send(html);
+  serveHtml(res, path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = parseInt(process.env.PORT || '5000', 10);
