@@ -314,7 +314,7 @@
     .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 4rem; max-width: 1400px; margin: 0 auto; }
     .footer-link { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s ease; }
     .footer-link:hover { color: white; }
-    .nav-x-icon { height: 1.25em; width: auto; vertical-align: middle; flex-shrink: 0; }
+    .nav-x-icon { height: 1.5em; width: auto; vertical-align: middle; flex-shrink: 0; display: inline-block; }
     .footer-contact-label { min-height: 2.6em; margin-bottom: 0.5rem; }
     .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
     .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
@@ -371,10 +371,12 @@
   <!-- deploy: header-logo-on value-section-white-logo-removed -->
   <header style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;background:linear-gradient(to bottom,rgba(0,0,0,0.8),transparent)">
     <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+      <!-- Main Think Digital X logo (left) - do not change -->
       <a href="#" id="nav-logo-link" style="display:flex;align-items:center">
         <img src="/header-logo.png" alt="Think Digital X" style="height:112px;min-width:240px;object-fit:contain" loading="eager">
       </a>
       <nav style="display:flex;gap:2rem;align-items:center">
+        <!-- x small logo only next to these three items; main logo stays as above -->
         <a href="#value" class="footer-link" id="nav-value-engine" style="display:inline-flex;align-items:center;gap:0.35rem"><img src="/images/xsmall.png" alt="" class="nav-x-icon" aria-hidden="true"> Value Engine</a>
         <div class="nav-dropdown">
           <a href="#product" class="footer-link" id="nav-product" style="display:inline-flex;align-items:center;gap:0.35rem"><img src="/images/xsmall.png" alt="" class="nav-x-icon" aria-hidden="true"> Products <iconify-icon icon="lucide:chevron-down" style="font-size:0.9rem"></iconify-icon></a>
