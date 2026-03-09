@@ -1,26 +1,48 @@
 import express from 'express';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-app.use((req, res, next) => {
-  if (req.path.endsWith('.html') || req.path === '/') {
-    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.set('Pragma', 'no-cache');
-    res.set('Expires', '0');
-  }
-  next();
+const NO_CACHE_HEADERS = {
+  'Cache-Control': 'no-cache, no-store, must-revalidate, proxy-revalidate, max-age=0',
+  'Pragma': 'no-cache',
+  'Expires': '0',
+  'Surrogate-Control': 'no-store',
+};
+
+app.get('/', (req, res) => {
+  const html = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8');
+  res.set(NO_CACHE_HEADERS);
+  res.set('Content-Type', 'text/html; charset=utf-8');
+  res.send(html);
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/:page.html', (req, res) => {
+  const filePath = path.join(__dirname, 'public', `${req.params.page}.html`);
+  if (fs.existsSync(filePath)) {
+    const html = fs.readFileSync(filePath, 'utf8');
+    res.set(NO_CACHE_HEADERS);
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.send(html);
+  } else {
+    res.status(404).send('Page not found');
+  }
+});
 
-// Serve header logo from same origin to avoid referrer/blocking (proxies Supabase asset)
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.png') || filePath.endsWith('.jpg') || filePath.endsWith('.svg')) {
+      res.set('Cache-Control', 'public, max-age=300');
+    }
+  }
+}));
+
 const HEADER_LOGO_URL = 'https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/eb00c481-a21d-4dc3-ad79-91e393584113/1771567741325-ad26bb0b/White_Color__X_FINAL_Think_Digital_logo_-_Transparent_Background-02.png';
 app.get('/header-logo.png', (req, res) => {
-  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.set('Pragma', 'no-cache');
+  res.set(NO_CACHE_HEADERS);
   fetch(HEADER_LOGO_URL)
     .then(r => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.statusText))))
     .then(buf => {
@@ -31,10 +53,10 @@ app.get('/header-logo.png', (req, res) => {
 });
 
 app.use((req, res) => {
-  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.set('Pragma', 'no-cache');
-  res.set('Expires', '0');
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const html = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8');
+  res.set(NO_CACHE_HEADERS);
+  res.set('Content-Type', 'text/html; charset=utf-8');
+  res.send(html);
 });
 
 const PORT = parseInt(process.env.PORT || '5000', 10);
