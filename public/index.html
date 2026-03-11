@@ -275,14 +275,14 @@
     .trusted-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; margin-top: 3rem; }
     .trusted-logos .brand-item { color: rgba(255,255,255,0.35); transition: color 0.35s ease; }
     .trusted-logos .brand-item:hover { color: white; }
-    .brand-strip { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; padding: 2.5rem 0; background: linear-gradient(180deg, rgba(51,51,51,0) 0%, #f5f5f5 14%, #f5f5f5 86%, rgba(51,51,51,0) 100%); }
+    .brand-strip { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; padding: 2.5rem 0; background: linear-gradient(180deg, rgba(51,51,51,0) 0%, #ffffff 14%, #ffffff 86%, rgba(51,51,51,0) 100%); }
     .brand-strip .brand-strip-inner { max-width: 100%; overflow: hidden; }
     .brands-marquee { overflow: hidden; margin-top: 0; padding: 0.5rem 0; }
     .brands-marquee-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: brands-scroll 40s linear infinite; }
     .brands-marquee-track:hover { animation-play-state: paused; }
     @keyframes brands-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.65; transition: filter 0.35s ease, opacity 0.35s ease; background: transparent; }
-    .brands-marquee .brand-logo:hover { filter: none; opacity: 1; }
+    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: filter 0.35s ease, opacity 0.35s ease; background: none; border: none; outline: none; border-radius: 0; padding: 0; }
+    .brands-marquee .brand-logo:hover { filter: none; opacity: 1; background: none; border: none; }
     .team-group-photo { min-height: 280px; background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
