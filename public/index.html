@@ -547,9 +547,9 @@
         catalogue.addEventListener('focusout', function(e) {
           if (!catalogue.contains(e.relatedTarget)) clearCenter();
         });
-        cards[0].style.order = '1';
-        cards[1].style.order = '2';
-        cards[2].style.order = '3';
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].style.order = String(i + 1);
+        }
       })();
     </script>
   </section>
