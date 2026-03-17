@@ -348,21 +348,23 @@
     }
     .nav-dropdown-content a:hover { background: rgba(255,255,255,0.08); color: white; }
     .ticker-block { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
+    .value-ticker-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .value-ticker-row .ticker-block { margin-top: 0; padding-top: 0; border-top: none; }
     .ticker-value { font-family: 'Montserrat', sans-serif; font-size: 2.25rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.25rem; }
-    .team-grid .team-card:nth-child(1) .ticker-value { color: var(--tdx-blue); }
-    .team-grid .team-card:nth-child(2) .ticker-value { color: var(--tdx-gold); }
-    .team-grid .team-card:nth-child(3) .ticker-value { color: var(--tdx-cyan); }
+    .value-ticker-row > div:nth-child(1) .ticker-value { color: var(--tdx-blue); }
+    .value-ticker-row > div:nth-child(2) .ticker-value { color: var(--tdx-gold); }
+    .value-ticker-row > div:nth-child(3) .ticker-value { color: var(--tdx-cyan); }
     .ticker-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: white; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @media (max-width: 1024px) {
-      .value-grid, .solutions-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .value-grid, .solutions-grid, .team-grid, .value-ticker-row { grid-template-columns: repeat(2, 1fr); }
       .media-kit-grid, .compliance-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-dropdown-content { left: auto; right: 0; }
     }
     @media (max-width: 768px) {
-      .value-grid, .solutions-grid, .team-grid { grid-template-columns: 1fr; }
+      .value-grid, .solutions-grid, .team-grid, .value-ticker-row { grid-template-columns: 1fr; }
       .footer-contact-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: 3.75rem; }
       .section { padding: 4rem 1.5rem; }
@@ -499,6 +501,20 @@
             <iconify-icon icon="lucide:check" style="width:16px;color:var(--tdx-cyan)"></iconify-icon>96% VIEWABILITY RATE
           </li>
         </ul>
+      </div>
+    </div>
+    <div class="value-ticker-row">
+      <div class="ticker-block">
+        <div class="ticker-value" data-target="883" data-suffix="" data-duration="1800">0</div>
+        <div class="ticker-label">Live Venues</div>
+      </div>
+      <div class="ticker-block">
+        <div class="ticker-value" data-target="275" data-suffix="K" data-duration="1800">0</div>
+        <div class="ticker-label">Active Users</div>
+      </div>
+      <div class="ticker-block">
+        <div class="ticker-value" data-target="10" data-suffix="m" data-duration="1800">0</div>
+        <div class="ticker-label">Ad Impressions</div>
       </div>
     </div>
   </section>
@@ -847,28 +863,16 @@
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Platform Operations</h3>
         <p style="font-size:0.9rem;color:var(--tdx-cyan);margin-bottom:1rem">Technical Infrastructure</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Leading deployment and optimisation across South Africa's most demanding environments.</p>
-        <div class="ticker-block">
-          <div class="ticker-value" data-target="883" data-suffix="" data-duration="1800">0</div>
-          <div class="ticker-label">Live Venues</div>
-        </div>
       </div>
       <div class="team-card glass-card">
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Commercial</h3>
         <p style="font-size:0.9rem;color:var(--tdx-gold);margin-bottom:1rem">Performance & Growth</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Driving growth and transformation through strategic partnerships</p>
-        <div class="ticker-block">
-          <div class="ticker-value" data-target="275" data-suffix="K" data-duration="1800">0</div>
-          <div class="ticker-label">Active Users</div>
-        </div>
       </div>
       <div class="team-card glass-card">
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Compliance & Security</h3>
         <p style="font-size:0.9rem;color:var(--tdx-blue);margin-bottom:1rem">Data Protection</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Ensuring POPIA compliance and maintaining zero-PII architecture across all data flows.</p>
-        <div class="ticker-block">
-          <div class="ticker-value" data-target="10" data-suffix="m" data-duration="1800">0</div>
-          <div class="ticker-label">Ad Impressions</div>
-        </div>
       </div>
     </div>
     <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(255,255,255,0.08)">
