@@ -281,8 +281,8 @@
     .brands-marquee-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: brands-scroll 40s linear infinite; }
     .brands-marquee-track:hover { animation-play-state: paused; }
     @keyframes brands-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: filter 0.35s ease, opacity 0.35s ease; background: none; border: none; outline: none; border-radius: 0; padding: 0; }
-    .brands-marquee .brand-logo:hover { filter: none; opacity: 1; background: none; border: none; }
+    .brands-marquee .brand-logo { flex-shrink: 0; height: 48px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.65; transition: filter 0.35s ease, opacity 0.35s ease; background: transparent; }
+    .brands-marquee .brand-logo:hover { filter: none; opacity: 1; }
     .team-group-photo { min-height: 280px; background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
@@ -347,6 +347,9 @@
       transition: background 0.2s, color 0.2s;
     }
     .nav-dropdown-content a:hover { background: rgba(255,255,255,0.08); color: white; }
+    .ticker-block { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
+    .ticker-value { font-family: 'Montserrat', sans-serif; font-size: 2.25rem; font-weight: 800; color: white; line-height: 1.2; margin-bottom: 0.25rem; }
+    .ticker-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @media (max-width: 1024px) {
       .value-grid, .solutions-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
@@ -551,6 +554,39 @@
           cards[i].style.order = String(i + 1);
         }
       })();
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var tickers = document.querySelectorAll('.ticker-value[data-target]');
+        if (!tickers.length) return;
+        function animateTicker(el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = parseInt(el.getAttribute('data-duration'), 10) || 1800;
+          var startTime = null;
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var elapsed = timestamp - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            progress = 1 - Math.pow(1 - progress, 2);
+            var current = Math.round(progress * target);
+            el.textContent = current + suffix + (progress >= 1 ? '+' : '');
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            if (el._tickerDone) return;
+            el._tickerDone = true;
+            animateTicker(el);
+            io.unobserve(el);
+          });
+        }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+        tickers.forEach(function(el) { io.observe(el); });
+      });
     </script>
   </section>
 
@@ -808,16 +844,28 @@
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Platform Operations</h3>
         <p style="font-size:0.9rem;color:var(--tdx-cyan);margin-bottom:1rem">Technical Infrastructure</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Leading deployment and optimisation across South Africa's most demanding environments.</p>
+        <div class="ticker-block">
+          <div class="ticker-value" data-target="883" data-suffix="" data-duration="1800">0</div>
+          <div class="ticker-label">Live Venues</div>
+        </div>
       </div>
       <div class="team-card glass-card">
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Commercial</h3>
         <p style="font-size:0.9rem;color:var(--tdx-gold);margin-bottom:1rem">Performance & Growth</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Driving growth and transformation through strategic partnerships</p>
+        <div class="ticker-block">
+          <div class="ticker-value" data-target="275" data-suffix="K" data-duration="1800">0</div>
+          <div class="ticker-label">Active Users</div>
+        </div>
       </div>
       <div class="team-card glass-card">
         <h3 style="font-size:1.25rem;margin-bottom:0.5rem">Compliance & Security</h3>
         <p style="font-size:0.9rem;color:var(--tdx-blue);margin-bottom:1rem">Data Protection</p>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6">Ensuring POPIA compliance and maintaining zero-PII architecture across all data flows.</p>
+        <div class="ticker-block">
+          <div class="ticker-value" data-target="10" data-suffix="m" data-duration="1800">0</div>
+          <div class="ticker-label">Ad Impressions</div>
+        </div>
       </div>
     </div>
     <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid rgba(255,255,255,0.08)">
