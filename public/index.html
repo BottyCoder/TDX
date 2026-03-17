@@ -348,8 +348,11 @@
     }
     .nav-dropdown-content a:hover { background: rgba(255,255,255,0.08); color: white; }
     .ticker-block { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
-    .ticker-value { font-family: 'Montserrat', sans-serif; font-size: 2.25rem; font-weight: 800; color: white; line-height: 1.2; margin-bottom: 0.25rem; }
-    .ticker-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); }
+    .ticker-value { font-family: 'Montserrat', sans-serif; font-size: 2.25rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.25rem; }
+    .team-grid .team-card:nth-child(1) .ticker-value { color: var(--tdx-blue); }
+    .team-grid .team-card:nth-child(2) .ticker-value { color: var(--tdx-gold); }
+    .team-grid .team-card:nth-child(3) .ticker-value { color: var(--tdx-cyan); }
+    .ticker-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: white; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @media (max-width: 1024px) {
       .value-grid, .solutions-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
