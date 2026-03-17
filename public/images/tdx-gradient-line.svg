@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="8" viewBox="0 0 800 8" fill="none">
+  <defs>
+    <linearGradient id="tdx-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#40E0D0" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#40E0D0"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="85%" stop-color="#B026D4"/>
+      <stop offset="100%" stop-color="#B026D4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="8" rx="2" fill="url(#tdx-line)"/>
+</svg>
