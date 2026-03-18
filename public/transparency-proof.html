@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo transparency proof</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    p { color: #444; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; }
+    .tile { width: 220px; padding: 1.5rem; border-radius: 12px; text-align: center; min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .tile span { font-size: 0.75rem; font-weight: 600; margin-top: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .tile img { max-width: 100%; height: auto; display: block; }
+    .bg-red { background: #e53935; }
+    .bg-green { background: #43a047; }
+    .bg-white { background: #fff; border: 1px solid #ddd; }
+    .bg-checker { background: repeating-conic-gradient(#fff 0% 25%, #ccc 25% 50%) 50% / 20px 20px; }
+    .result { padding: 1rem; border-radius: 8px; margin-top: 2rem; font-weight: 600; }
+    .result.transparent { background: #e8f5e9; color: #2e7d32; }
+    .result.opaque { background: #ffebee; color: #c62828; }
+    .result.unknown { background: #fff3e0; color: #e65100; }
+  </style>
+</head>
+<body>
+  <h1>Transparency proof: logo on different backgrounds</h1>
+  <p>This page shows the same image on four backgrounds. <strong>If the logo has a transparent background</strong>, you will see the red, green, white, or checkerboard through the area around the logo. <strong>If you see a black or dark rectangle</strong> around the logo, the file has an opaque (e.g. black) background, not transparency.</p>
+  <p>Use the image you want to test: place it in the same folder as this HTML and name it <code>logo-to-test.png</code>, or change the path below.</p>
+
+  <div class="row">
+    <div class="tile bg-red"><img src="logo-to-test.png" alt="Logo" id="img" onerror="this.style.display='none'; this.nextElementSibling?.classList.add('show');"><span style="display:none" class="show">No image found. Save the logo as logo-to-test.png here.</span><span>Red</span></div>
+    <div class="tile bg-green"><img src="logo-to-test.png" alt="Logo"><span>Green</span></div>
+    <div class="tile bg-white"><img src="logo-to-test.png" alt="Logo"><span>White</span></div>
+    <div class="tile bg-checker"><img src="logo-to-test.png" alt="Logo"><span>Checkerboard</span></div>
+  </div>
+
+  <div id="result" class="result unknown">Open this file in a browser with the logo saved as logo-to-test.png in the same folder to see the result.</div>
+
+  <script>
+    (function() {
+      var img = document.getElementById('img');
+      if (!img.complete) img.addEventListener('load', check);
+      else check();
+      function check() {
+        var result = document.getElementById('result');
+        if (img.naturalWidth === 0) {
+          result.className = 'result unknown';
+          result.textContent = 'No image loaded. Save the client\'s logo as "logo-to-test.png" in the same folder as this HTML file, then refresh.';
+          return;
+        }
+        var canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        var corners = [
+          [0, 0], [canvas.width - 1, 0], [0, canvas.height - 1], [canvas.width - 1, canvas.height - 1]
+        ];
+        var hasTransparent = false;
+        var allBlack = true;
+        for (var i = 0; i < corners.length; i++) {
+          var p = ctx.getImageData(corners[i][0], corners[i][1], 1, 1).data;
+          if (p[3] < 128) hasTransparent = true;
+          if (p[0] !== 0 || p[1] !== 0 || p[2] !== 0) allBlack = false;
+        }
+        if (hasTransparent) {
+          result.className = 'result transparent';
+          result.textContent = 'Result: This image HAS transparency (corner pixels are transparent).';
+        } else if (allBlack) {
+          result.className = 'result opaque';
+          result.textContent = 'Result: This image has NO transparency. The corners are opaque black (#000000). What you see around the logo is a black background, not transparency.';
+        } else {
+          result.className = 'result opaque';
+          result.textContent = 'Result: This image has NO transparency. The corners are opaque (not transparent). The area around the logo is solid pixels, not transparent.';
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
