@@ -287,7 +287,7 @@
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .team-card { padding: 2rem; border-radius: 20px; text-align: center; }
     .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 4rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 400px)); gap: 3rem; margin-top: 4rem; justify-content: center; }
     .contact-form { padding: 1rem; border-radius: 24px; }
     .form-group { margin-bottom: 1.5rem; }
     .form-label {
@@ -1044,19 +1044,6 @@
             <button type="submit" class="btn-primary" style="width:100%;background:var(--tdx-gold);color:black" id="form-advertiser-submit">Request Quote</button>
             <p class="mono" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:1rem;letter-spacing:0.05em">FORM DATA IS RELAY-ONLY. NO PII STORAGE.</p>
           </form>
-        </div>
-        <div class="contact-form glass-card" style="border-color:rgba(255,215,0,0.4)">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem">
-            <div style="width:60px;height:60px;border-radius:16px;background:rgba(255,215,0,0.1);display:flex;align-items:center;justify-content:center">
-              <iconify-icon icon="lucide:settings" style="font-size:1.75rem;color:var(--tdx-yellow)"></iconify-icon>
-            </div>
-            <div>
-              <h3 style="font-size:1.5rem">Do it yourself</h3>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.5)">For media agency planners and FMCG brand managers. TDX supports AdEx.</p>
-            </div>
-          </div>
-          <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:1.5rem">Here’s how — content to be provided by Janine/Marnus.</p>
-          <a href="mailto:info@tdx.media?subject=Do%20it%20yourself%20inquiry" class="btn-primary" style="width:100%;display:block;text-align:center;padding:1rem;background:var(--tdx-yellow);color:black;font-weight:700;border-radius:12px;text-decoration:none;box-sizing:border-box" id="contact-do-it-yourself">Get in touch</a>
         </div>
       </div>
     </div>
